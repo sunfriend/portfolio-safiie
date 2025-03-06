@@ -1,27 +1,200 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer [mode]="'over'" [opened]="mode === 'side'" class="sidenav">
+  <mat-sidenav
+    #drawer
+    [mode]="'over'"
+    [opened]="mode === 'side'"
+    class="sidenav"
+  >
     <div class="sidenav-links">
-      <button mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeSidenav(drawer)">Home</button>
-      <button mat-button routerLink="/philosophy" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Philosophy</button>
-      <button mat-button routerLink="/pre-student-teaching" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Pre Student Teaching</button>
-      <button mat-button routerLink="/resume" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Resume</button>
-      <button mat-button routerLink="/student-learning" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Student Learning</button>
-      <button mat-button routerLink="/learning-environments" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Learning Environments</button>
-      <button mat-button routerLink="/assessment" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Assessment</button>
-      <button mat-button routerLink="/planning-for-instruction" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Planning for Instruction</button>
-      <button mat-button routerLink="/instructional-strategies" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Instructional Strategies</button>
-      <button mat-button routerLink="/professional-responsibilities" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Professional Responsibilities</button>
-      <button mat-button routerLink="/collaboration-and-leadership" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Collaboration and Leadership</button>
-      <button mat-button routerLink="/racial-consciousness-and-reflection" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Racial Consciousness and Reflection</button>
+      <button
+        mat-button
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeSidenav(drawer)"
+      >
+        Home
+      </button>
+      <button
+        mat-button
+        routerLink="/philosophy"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Philosophy
+      </button>
+      <button
+        mat-button
+        routerLink="/pre-student-teaching"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Pre Student Teaching
+      </button>
+      <button
+        mat-button
+        routerLink="/resume"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Resume
+      </button>
+      <button
+        mat-button
+        routerLink="/student-learning"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Student Learning
+      </button>
+      <button
+        mat-button
+        routerLink="/learning-environments"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Learning Environments
+      </button>
+      <button
+        mat-button
+        routerLink="/assessment"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Assessment
+      </button>
+      <button
+        mat-button
+        routerLink="/planning-for-instruction"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Planning for Instruction
+      </button>
+      <button
+        mat-button
+        routerLink="/instructional-strategies"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Instructional Strategies
+      </button>
+      <button
+        mat-button
+        routerLink="/professional-responsibilities"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Professional Responsibilities
+      </button>
+      <button
+        mat-button
+        routerLink="/collaboration-and-leadership"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Collaboration and Leadership
+      </button>
+      <button
+        mat-button
+        routerLink="/racial-consciousness-and-reflection"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        Racial Consciousness and Reflection
+      </button>
     </div>
   </mat-sidenav>
-  
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
+      <span class="title">Safiie Seitatpiieva</span>
+      <!-- First Dropdown -->
+      <!-- First Dropdown -->
+      <button
+        mat-button
+        #menu1Trigger="matMenuTrigger"
+        (mouseenter)="openMenu(menu1Trigger)"
+        (mouseleave)="closeMenu(menu1Trigger)"
+        [matMenuTriggerFor]="menu1"
+      >
+        Teaching
+      </button>
+      <mat-menu
+        #menu1="matMenu"
+        (mouseenter)="menuOpen = true"
+        (mouseleave)="menuOpen = false; closeMenu(menu1Trigger)"
+      >
+        <button mat-menu-item routerLink="/student-learning">
+          Student Learning
+        </button>
+        <button mat-menu-item routerLink="/learning-environments">
+          Learning Environments
+        </button>
+        <button mat-menu-item routerLink="/assessment">Assessment</button>
+        <button mat-menu-item routerLink="/planning-for-instruction">
+          Planning for Instruction
+        </button>
+        <button mat-menu-item routerLink="/instructional-strategies">
+          Instructional Strategies
+        </button>
+      </mat-menu>
+
+      <!-- Second Dropdown -->
+      <button
+        mat-button
+        #menu2Trigger="matMenuTrigger"
+        (mouseenter)="openMenu(menu2Trigger)"
+        (mouseleave)="closeMenu(menu2Trigger)"
+        [matMenuTriggerFor]="menu2"
+      >
+        Professional
+      </button>
+      <mat-menu
+        #menu2="matMenu"
+        (mouseenter)="menuOpen = true"
+        (mouseleave)="menuOpen = false; closeMenu(menu2Trigger)"
+      >
+        <button mat-menu-item routerLink="/resume">Resume</button>
+        <button mat-menu-item routerLink="/professional-responsibilities">
+          Professional Responsibilities
+        </button>
+        <button mat-menu-item routerLink="/collaboration-and-leadership">
+          Collaboration and Leadership
+        </button>
+      </mat-menu>
+
+      <!-- Third Dropdown -->
+      <button
+        mat-button
+        #menu3Trigger="matMenuTrigger"
+        (mouseenter)="openMenu(menu3Trigger)"
+        (mouseleave)="closeMenu(menu3Trigger)"
+        [matMenuTriggerFor]="menu3"
+      >
+        More
+      </button>
+      <mat-menu
+        #menu3="matMenu"
+        (mouseenter)="menuOpen = true"
+        (mouseleave)="menuOpen = false; closeMenu(menu3Trigger)"
+      >
+        <button mat-menu-item routerLink="/philosophy">Philosophy</button>
+        <button mat-menu-item routerLink="/pre-student-teaching">
+          Pre Student Teaching
+        </button>
+        <button mat-menu-item routerLink="/racial-consciousness-and-reflection">
+          Racial Consciousness and Reflection
+        </button>
+      </mat-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-<app-hamburger [initialState]="mode === 'side'" [closed]="drawer.closedStart" (trigger)="drawer.toggle();"
-class="hamburger-button"/>
+<app-hamburger
+  [initialState]="mode === 'side'"
+  [closed]="drawer.closedStart"
+  (trigger)="drawer.toggle()"
+  class="hamburger-button"
+/>

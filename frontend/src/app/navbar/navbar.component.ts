@@ -7,16 +7,19 @@ import { MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/s
 import { MatListModule } from '@angular/material/list';
 import { HamburgerComponent } from '../hamburger/hamburger.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
+  imports: [MatMenuModule, MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
 
+
   mode: MatDrawerMode = 'side';
+  menuOpen: boolean = false;
   @ViewChild('drawer') drawer!: MatSidenav;
   
   constructor(private breakpointObserver: BreakpointObserver) {
@@ -30,5 +33,14 @@ export class NavbarComponent {
 
   closeSidenav(drawer: any) {
     drawer.close();
+  }
+
+  closeMenu(status: any) {
+    console.log("closed");
+    console.log(status);
+  }
+    openMenu(status: any) {
+    console.log("opened");
+    console.log(status);
   }
 }
