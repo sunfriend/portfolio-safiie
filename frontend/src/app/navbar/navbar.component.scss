@@ -154,31 +154,23 @@ mat-toolbar button {
 
 /* Media Query for Mobile View */
 @media screen and (max-width: 768px) {
-
-
-
-
     mat-sidenav-content {
-        padding: 0; /* Remove left padding for full screen */
+      padding: 0; /* Remove padding on small screens */
     }
-
-    /* When the sidenav is toggled */
-    .mat-sidenav.opened {
-        display: block;
-    }
-
-    .hamburger-button {
-        display: block; /* Make the hamburger button visible */
-    }
-}
-
-/* Media Query for Desktop View */
-@media screen and (min-width: 769px) {
     .sidenav {
-        display: block; /* Show sidenav permanently on desktop */
+      display: block; /* Hide sidenav on small screens */
     }
-
     .hamburger-button {
-        display: none; /* Hide the hamburger button on desktop */
+      display: block; /* Show hamburger button */
     }
-}
+  }
+  
+  @media screen and (min-width: 769px) {
+    .sidenav {
+      display: none; /* Show sidenav on large screens */
+    }
+    .hamburger-button {
+      display: none; /* Hide hamburger button */
+    }
+  }
+  
