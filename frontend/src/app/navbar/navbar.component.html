@@ -1,39 +1,27 @@
-<!-- app.component.html -->
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer [mode]="'over'" [opened]="mode === 'side'" class="sidenav">
-      <!-- Sidenav (Sidebar) -->
-      <mat-toolbar color="primary" class="sidenav-toolbar">
-        <span class="title">My Portfolio</span>
-      </mat-toolbar>
-      <div class="sidenav-links">
-        <button mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</button>
-        <button mat-button routerLink="/philosophy" routerLinkActive="active-link">Philosophy</button>
-        <button mat-button routerLink="/pre-student-teaching" routerLinkActive="active-link">Pre Student Teaching</button>
-        <button mat-button routerLink="/resume" routerLinkActive="active-link">Resume</button>
-        <button mat-button routerLink="/student-learning" routerLinkActive="active-link">Student Learning</button>
-        <button mat-button routerLink="/learning-environments" routerLinkActive="active-link">Learning Environments</button>
-        <button mat-button routerLink="/assessment" routerLinkActive="active-link">Assessment</button>
-        <button mat-button routerLink="/planning-for-instruction" routerLinkActive="active-link">Planning for Instruction</button>
-        <button mat-button routerLink="/instructional-strategies" routerLinkActive="active-link">Instructional Strategies</button>
-        <button mat-button routerLink="/professional-responsibilities" routerLinkActive="active-link">Professional Responsibilities</button>
-        <button mat-button routerLink="/collaboration-and-leadership" routerLinkActive="active-link">Collaboration and Leadership</button>
-        <button mat-button routerLink="/racial-consciousness-and-reflection" routerLinkActive="active-link">Racial Consciousness and Reflection</button>
-      </div>
-    </mat-sidenav>
+  <mat-sidenav #drawer [mode]="'over'" [opened]="mode === 'side'" class="sidenav">
+    <div class="sidenav-links">
+      <button mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeSidenav(drawer)">Home</button>
+      <button mat-button routerLink="/philosophy" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Philosophy</button>
+      <button mat-button routerLink="/pre-student-teaching" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Pre Student Teaching</button>
+      <button mat-button routerLink="/resume" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Resume</button>
+      <button mat-button routerLink="/student-learning" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Student Learning</button>
+      <button mat-button routerLink="/learning-environments" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Learning Environments</button>
+      <button mat-button routerLink="/assessment" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Assessment</button>
+      <button mat-button routerLink="/planning-for-instruction" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Planning for Instruction</button>
+      <button mat-button routerLink="/instructional-strategies" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Instructional Strategies</button>
+      <button mat-button routerLink="/professional-responsibilities" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Professional Responsibilities</button>
+      <button mat-button routerLink="/collaboration-and-leadership" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Collaboration and Leadership</button>
+      <button mat-button routerLink="/racial-consciousness-and-reflection" routerLinkActive="active-link" (click)="closeSidenav(drawer)">Racial Consciousness and Reflection</button>
+    </div>
+  </mat-sidenav>
   
-    <!-- Main Content Area -->
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <!-- <app-hamburger [initialState]="mode === 'side'" [closed]="drawer.closedStart" (trigger)="drawer.toggle();"/> -->
-        <span class="title">Welcome to My Portfolio</span>
-      </mat-toolbar>
-  
-      <!-- This is where the routed components will be displayed -->
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-  <!-- Hamburger outside of sidenav -->
 <app-hamburger [initialState]="mode === 'side'" [closed]="drawer.closedStart" (trigger)="drawer.toggle();"
 class="hamburger-button"/>
-  
