@@ -122,8 +122,7 @@
       </button>
       <mat-menu
         #menu1="matMenu"
-        (mouseenter)="menuOpen = true"
-        (mouseleave)="menuOpen = false; closeMenu(menu1Trigger)"
+        [hasBackdrop]="false"
       >
         <button mat-menu-item routerLink="/student-learning">
           Student Learning
@@ -152,8 +151,7 @@
       </button>
       <mat-menu
         #menu2="matMenu"
-        (mouseenter)="menuOpen = true"
-        (mouseleave)="menuOpen = false; closeMenu(menu2Trigger)"
+        [hasBackdrop]="false"
       >
         <button mat-menu-item routerLink="/resume">Resume</button>
         <button mat-menu-item routerLink="/professional-responsibilities">
@@ -176,8 +174,7 @@
       </button>
       <mat-menu
         #menu3="matMenu"
-        (mouseenter)="menuOpen = true"
-        (mouseleave)="menuOpen = false; closeMenu(menu3Trigger)"
+        [hasBackdrop]="false"
       >
         <button mat-menu-item routerLink="/philosophy">Philosophy</button>
         <button mat-menu-item routerLink="/pre-student-teaching">

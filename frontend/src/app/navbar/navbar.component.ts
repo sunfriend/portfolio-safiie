@@ -35,12 +35,12 @@ export class NavbarComponent {
     drawer.close();
   }
 
-  closeMenu(status: any) {
+  closeMenu(trigger: any) {
     console.log("closed");
-    console.log(status);
+    trigger.closeMenu();
   }
-    openMenu(status: any) {
+    openMenu(trigger: any) {
     console.log("opened");
-    console.log(status);
+    trigger.openMenu();
   }
 }
