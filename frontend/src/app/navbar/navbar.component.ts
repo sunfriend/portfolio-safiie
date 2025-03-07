@@ -35,12 +35,28 @@ export class NavbarComponent {
     drawer.close();
   }
 
-  closeMenu(trigger: any) {
-    console.log("closed");
+  // closeMenu(trigger: any) {
+  //   console.log("closed");
+  //   trigger.closeMenu();
+  // }
+  //   openMenu(trigger: any) {
+  //   console.log("opened");
+  //   trigger.openMenu();
+  // }
+
+  timedOutCloser: any;
+
+mouseEnter(trigger: any) {
+  if (this.timedOutCloser) {
+    clearTimeout(this.timedOutCloser); // Prevent menu from closing
+  }
+  trigger.openMenu();
+}
+
+mouseLeave(trigger: any) {
+  this.timedOutCloser = setTimeout(() => {
     trigger.closeMenu();
-  }
-    openMenu(trigger: any) {
-    console.log("opened");
-    trigger.openMenu();
-  }
+  }, 50); // Short delay before closing
+}
+
 }

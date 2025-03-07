@@ -109,82 +109,95 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <span class="title">Safiie Seitatpiieva</span>
-      <!-- First Dropdown -->
+
       <!-- First Dropdown -->
       <button
         mat-button
         #menu1Trigger="matMenuTrigger"
-        (mouseenter)="openMenu(menu1Trigger)"
-        (mouseleave)="closeMenu(menu1Trigger)"
+        (mouseenter)="mouseEnter(menu1Trigger)"
+        (mouseleave)="mouseLeave(menu1Trigger)"
         [matMenuTriggerFor]="menu1"
       >
         Teaching
       </button>
-      <mat-menu
-        #menu1="matMenu"
-        [hasBackdrop]="false"
-      >
-        <button mat-menu-item routerLink="/student-learning">
-          Student Learning
-        </button>
-        <button mat-menu-item routerLink="/learning-environments">
-          Learning Environments
-        </button>
-        <button mat-menu-item routerLink="/assessment">Assessment</button>
-        <button mat-menu-item routerLink="/planning-for-instruction">
-          Planning for Instruction
-        </button>
-        <button mat-menu-item routerLink="/instructional-strategies">
-          Instructional Strategies
-        </button>
+
+      <mat-menu #menu1="matMenu" [hasBackdrop]="false">
+        <div
+          (mouseenter)="mouseEnter(menu1Trigger)"
+          (mouseleave)="mouseLeave(menu1Trigger)"
+        >
+          <button mat-menu-item routerLink="/student-learning">
+            Student Learning
+          </button>
+          <button mat-menu-item routerLink="/learning-environments">
+            Learning Environments
+          </button>
+          <button mat-menu-item routerLink="/assessment">Assessment</button>
+          <button mat-menu-item routerLink="/planning-for-instruction">
+            Planning for Instruction
+          </button>
+          <button mat-menu-item routerLink="/instructional-strategies">
+            Instructional Strategies
+          </button>
+        </div>
       </mat-menu>
 
       <!-- Second Dropdown -->
       <button
         mat-button
         #menu2Trigger="matMenuTrigger"
-        (mouseenter)="openMenu(menu2Trigger)"
-        (mouseleave)="closeMenu(menu2Trigger)"
+        (mouseenter)="mouseEnter(menu2Trigger)"
+        (mouseleave)="mouseLeave(menu2Trigger)"
         [matMenuTriggerFor]="menu2"
       >
         Professional
       </button>
-      <mat-menu
-        #menu2="matMenu"
-        [hasBackdrop]="false"
-      >
-        <button mat-menu-item routerLink="/resume">Resume</button>
-        <button mat-menu-item routerLink="/professional-responsibilities">
-          Professional Responsibilities
-        </button>
-        <button mat-menu-item routerLink="/collaboration-and-leadership">
-          Collaboration and Leadership
-        </button>
+
+      <mat-menu #menu2="matMenu" [hasBackdrop]="false">
+        <div
+          (mouseenter)="mouseEnter(menu2Trigger)"
+          (mouseleave)="mouseLeave(menu2Trigger)"
+        >
+          <button mat-menu-item routerLink="/resume">Resume</button>
+          <button mat-menu-item routerLink="/professional-responsibilities">
+            Professional Responsibilities
+          </button>
+          <button mat-menu-item routerLink="/collaboration-and-leadership">
+            Collaboration and Leadership
+          </button>
+        </div>
       </mat-menu>
 
       <!-- Third Dropdown -->
       <button
         mat-button
         #menu3Trigger="matMenuTrigger"
-        (mouseenter)="openMenu(menu3Trigger)"
-        (mouseleave)="closeMenu(menu3Trigger)"
+        (mouseenter)="mouseEnter(menu3Trigger)"
+        (mouseleave)="mouseLeave(menu3Trigger)"
         [matMenuTriggerFor]="menu3"
       >
         More
       </button>
-      <mat-menu
-        #menu3="matMenu"
-        [hasBackdrop]="false"
-      >
-        <button mat-menu-item routerLink="/philosophy">Philosophy</button>
-        <button mat-menu-item routerLink="/pre-student-teaching">
-          Pre Student Teaching
-        </button>
-        <button mat-menu-item routerLink="/racial-consciousness-and-reflection">
-          Racial Consciousness and Reflection
-        </button>
+
+      <mat-menu #menu3="matMenu" [hasBackdrop]="false">
+        <div
+          (mouseenter)="mouseEnter(menu3Trigger)"
+          (mouseleave)="mouseLeave(menu3Trigger)"
+        >
+          <button mat-menu-item routerLink="/philosophy">Philosophy</button>
+          <button mat-menu-item routerLink="/pre-student-teaching">
+            Pre Student Teaching
+          </button>
+          <button
+            mat-menu-item
+            routerLink="/racial-consciousness-and-reflection"
+          >
+            Racial Consciousness and Reflection
+          </button>
+        </div>
       </mat-menu>
     </mat-toolbar>
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
