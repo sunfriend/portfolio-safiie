@@ -45,18 +45,30 @@ export class NavbarComponent {
   // }
 
   timedOutCloser: any;
-
-mouseEnter(trigger: any) {
-  if (this.timedOutCloser) {
-    clearTimeout(this.timedOutCloser); // Prevent menu from closing
+  openMenuTrigger: any; // Track currently open menu
+  
+  mouseEnter(trigger: any) {
+    // Close any previously open menu
+    if (this.openMenuTrigger && this.openMenuTrigger !== trigger) {
+      this.openMenuTrigger.closeMenu();
+    }
+  
+    // Prevent closing and open the new one
+    if (this.timedOutCloser) {
+      clearTimeout(this.timedOutCloser);
+    }
+    trigger.openMenu();
+    this.openMenuTrigger = trigger; // Store the currently open menu
   }
-  trigger.openMenu();
-}
-
-mouseLeave(trigger: any) {
-  this.timedOutCloser = setTimeout(() => {
-    trigger.closeMenu();
-  }, 50); // Short delay before closing
-}
+  
+  mouseLeave(trigger: any) {
+    this.timedOutCloser = setTimeout(() => {
+      if (this.openMenuTrigger === trigger) {
+        trigger.closeMenu();
+        this.openMenuTrigger = null; // Reset tracking when closed
+      }
+    }, 50);
+  }
+  
 
 }
