@@ -1,8 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@angular/material/prebuilt-themes/azure-blue.css";
 
+/* Define color variable */
+$hover-bg-color: rgb(74, 185, 131);
+
 html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-menu-item:focus {
+  background-color: transparent !important;
+}
+.mat-mdc-menu-item:hover {
+  background-color: $hover-bg-color !important;
 }

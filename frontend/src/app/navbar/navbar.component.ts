@@ -67,7 +67,7 @@ export class NavbarComponent {
         trigger.closeMenu();
         this.openMenuTrigger = null; // Reset tracking when closed
       }
-    }, 50);
+    }, 300);
   }
   
 
