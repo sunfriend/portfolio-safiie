@@ -85,6 +85,17 @@ mat-toolbar button {
     z-index: 10;
 }
 
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+  .title {
+    flex-grow: 1;  // This ensures the title stays left and other elements go to the right
+  }
+  
+  
 /* Media Query for Mobile View */
 @media screen and (max-width: 768px) {
     mat-sidenav-content {
@@ -96,6 +107,23 @@ mat-toolbar button {
     .hamburger-button {
       display: block;
     }
+    /* Hide mat-menu on small screens */
+    mat-toolbar button {
+        display: none !important;
+    }
+    mat-toolbar .title {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    mat-toolbar .title {
+        font-size: 16px;
+    } 
+    .hamburger-button {
+        position: fixed;
+        top: 16px;
+    }
 }
 
 @media screen and (min-width: 769px) {
@@ -104,5 +132,9 @@ mat-toolbar button {
     }
     .hamburger-button {
       display: none;
+    }
+    mat-toolbar .title {
+        font-size: 20px;
+        margin-left: 0;
     }
 }
