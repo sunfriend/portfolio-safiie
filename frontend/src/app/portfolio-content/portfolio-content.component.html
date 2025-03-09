@@ -1,0 +1,10 @@
+<div class="portfolio-container">
+  <div class="top-image">
+    <img [src]="imageSrc" [alt]="imageAlt" />
+  </div>
+  <div class="content">
+    <div class="column" *ngFor="let block of contentBlocks">
+      {{ block }}
+    </div>
+  </div>
+</div>
