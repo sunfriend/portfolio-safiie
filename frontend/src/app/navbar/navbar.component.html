@@ -117,7 +117,7 @@
         mat-button
         #menu1Trigger="matMenuTrigger"
         (mouseenter)="mouseEnter(menu1Trigger)"
-        (mouseleave)="mouseLeave(menu1Trigger)"
+        (mouseleave)="mouseLeave(menu1Trigger, $event)"
         [matMenuTriggerFor]="menu1"
       >
         Teaching
@@ -126,7 +126,7 @@
       <mat-menu #menu1="matMenu" [hasBackdrop]="false">
         <div
           (mouseenter)="mouseEnter(menu1Trigger)"
-          (mouseleave)="mouseLeave(menu1Trigger)"
+          (mouseleave)="mouseLeave(menu1Trigger, $event)"
         >
           <button mat-menu-item routerLink="/student-learning" routerLinkActive="active-link">
             Student Learning
@@ -149,7 +149,7 @@
         mat-button
         #menu2Trigger="matMenuTrigger"
         (mouseenter)="mouseEnter(menu2Trigger)"
-        (mouseleave)="mouseLeave(menu2Trigger)"
+        (mouseleave)="mouseLeave(menu2Trigger, $event)"
         [matMenuTriggerFor]="menu2"
       >
         Professional
@@ -158,7 +158,7 @@
       <mat-menu #menu2="matMenu" [hasBackdrop]="false">
         <div
           (mouseenter)="mouseEnter(menu2Trigger)"
-          (mouseleave)="mouseLeave(menu2Trigger)"
+          (mouseleave)="mouseLeave(menu2Trigger, $event)"
         >
           <button mat-menu-item routerLink="/resume" routerLinkActive="active-link">Resume</button>
           <button mat-menu-item routerLink="/professional-responsibilities" routerLinkActive="active-link">
@@ -175,7 +175,7 @@
         mat-button
         #menu3Trigger="matMenuTrigger"
         (mouseenter)="mouseEnter(menu3Trigger)"
-        (mouseleave)="mouseLeave(menu3Trigger)"
+        (mouseleave)="mouseLeave(menu3Trigger, $event)"
         [matMenuTriggerFor]="menu3"
       >
         More
@@ -184,7 +184,7 @@
       <mat-menu #menu3="matMenu" [hasBackdrop]="false">
         <div
           (mouseenter)="mouseEnter(menu3Trigger)"
-          (mouseleave)="mouseLeave(menu3Trigger)"
+          (mouseleave)="mouseLeave(menu3Trigger, $event)"
         >
           <button mat-menu-item routerLink="/philosophy" routerLinkActive="active-link">Philosophy</button>
           <button mat-menu-item routerLink="/pre-student-teaching" routerLinkActive="active-link">

@@ -58,13 +58,17 @@ export class NavbarComponent {
     this.openMenuTrigger = trigger; // Store the currently open menu
   }
   
-  mouseLeave(trigger: any) {
+  mouseLeave(trigger: any, event: MouseEvent) {
+    const toElement = event.relatedTarget as HTMLElement;
+    if (toElement && toElement.closest('.mat-mdc-menu-content')) {
+      return; // Do not close if moving to the dropdown or back to the trigger
+    }
     this.timedOutCloser = setTimeout(() => {
       if (this.openMenuTrigger === trigger) {
         trigger.closeMenu();
         this.openMenuTrigger = null; // Reset tracking when closed
       }
-    }, 300);
+    }, 200);
   }
   
 
