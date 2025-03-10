@@ -2,7 +2,7 @@
   <mat-sidenav
     #drawer
     [mode]="'over'"
-    [opened]="mode === 'side'"
+    [opened]="false"
     class="sidenav"
   >
     <div class="sidenav-links">
@@ -205,7 +205,7 @@
 </mat-sidenav-container>
 
 <app-hamburger
-  [initialState]="mode === 'side'"
+  [initialState]="false"
   [closed]="drawer.closedStart"
   (trigger)="drawer.toggle()"
   class="hamburger-button"

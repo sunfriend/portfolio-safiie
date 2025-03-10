@@ -17,14 +17,11 @@ import { MatMenuModule } from '@angular/material/menu';
 })
 export class NavbarComponent {
 
-
-  mode: MatDrawerMode = 'side';
   menuOpen: boolean = false;
   @ViewChild('drawer') drawer!: MatSidenav;
   
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).subscribe(result => {
-      this.mode = result.matches ? 'over' : 'side';
       if (result.matches && this.drawer && this.drawer.opened) {
         this.drawer.close();  // Ensure it's closed on smaller screens
       }
