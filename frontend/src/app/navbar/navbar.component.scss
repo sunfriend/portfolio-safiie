@@ -1,75 +1,139 @@
+$primary-color: #1976d2;
+$hover-color: #1565c0;
+$active-link-color: #64b5f6;  /* Lighter blue for better contrast and visibility */
+$button-text-color: white;
+$background-color: #f4f4f4;
+$toolbar-background-color: $primary-color;
+$toolbar-text-color: white;
+
+
+.hamburger-button {
+    position: fixed;
+    top: 40px;
+    left: 30px;
+    z-index: 10;
+}
+
 .sidenav-container {
     height: 100vh;
     display: flex;
 }
-  
+
 .sidenav {
     width: 250px;
-    background-color: #1976d2;
-    color: white;
-    padding-top: 64px; /* Optional, to avoid overlap with mat-toolbar */
+    background-color: $primary-color;  /* Using the primary color variable */
+    color: $button-text-color;
+    padding-top: 64px;
+    display: block;
 }
-  
+
 .sidenav-links {
     display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
-    height: 100%; /* Ensures it takes the full height */
-    justify-content: flex-start; /* Ensures the links are aligned to the top */
-    align-items: flex-start; /* Ensures the links are aligned to the left */
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+
 .sidenav-links button:hover {
-    background-color: #1565c0; /* Darken the background on mouse-over */
-}
-.active-link {
-    background-color: rgba(255, 255, 255, 0.2); 
-    color: #ffffff !important; 
-    border-left: 4px solid #ffffff; 
+    background-color: $hover-color;  /* Using the hover color variable */
 }
 
-// Ensure Angular applies the styles to the button element
 .sidenav-links button.active-link {
-    background-color: rgba(255, 255, 255, 0.2); 
-    color: #ffffff !important; 
-    border-left: 4px solid #ffffff; 
+    background-color: $active-link-color; /* Using the active link color */
+    color: $button-text-color !important;
 }
 
-  
 .sidenav-links button {
-    width: auto; /* Prevent button from expanding to 100% width */
-    text-align: left; /* Align button text to the left */
+    width: auto;
+    text-align: left;
     padding: 16px;
-    background: none; /* Remove default button background */
-    border: none; /* Remove default button border */
-    color: white; /* Ensure button text is white */
+    background: none;
+    border: none;
+    color: $button-text-color;
 }
-  
+
 mat-sidenav-content {
     flex-grow: 1;
-    background-color: #f4f4f4;
-    padding: 20px;
+    background-color: $background-color;
     overflow: auto;
 }
-  
+
 mat-toolbar {
     padding: 10px 20px;
-    background-color: #1976d2;
+    background-color: $toolbar-background-color;
 }
-  
+
 mat-toolbar .title {
     font-weight: bold;
     font-size: 20px;
-    color: white;
+    color: $toolbar-text-color;
+    margin-left: 50px;
 }
-  
+
 mat-toolbar button {
-    color: white;
+    color: $toolbar-text-color;
 }
 
 .hamburger-button {
     position: fixed;
-    top: 40px;   /* Adjust to position it where you want */
-    left: 30px;  /* Adjust to position it where you want */
-    z-index: 10; /* Ensure it stays on top */
+    top: 20px;
+    left: 30px;
+    z-index: 10;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+  .title {
+    flex-grow: 1;  // This ensures the title stays left and other elements go to the right
+  }
+  
+  
+/* Media Query for Mobile View */
+@media screen and (max-width: 768px) {
+    mat-sidenav-content {
+      padding: 0;
+    }
+    .sidenav {
+      display: block;
+    }
+    .hamburger-button {
+      display: block;
+    }
+    /* Hide mat-menu on small screens */
+    mat-toolbar button {
+        display: none !important;
+    }
+    mat-toolbar .title {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    mat-toolbar .title {
+        font-size: 16px;
+    } 
+    .hamburger-button {
+        position: fixed;
+        top: 16px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .sidenav {
+      display: none;
+    }
+    .hamburger-button {
+      display: none;
+    }
+    mat-toolbar .title {
+        font-size: 20px;
+        margin-left: 0;
+    }
 }

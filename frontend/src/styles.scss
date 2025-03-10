@@ -1,8 +1,46 @@
+@use '@angular/material' as mat;
+
 /* You can add global styles to this file, and also import other style files */
 @import "@angular/material/prebuilt-themes/azure-blue.css";
+
+/* Define color variables */
+$primary-color: #1976d2;
+$hover-color: #1565c0;
+$active-link-color: #64b5f6;  /* Lighter blue for better contrast and visibility */
+$button-text-color: white;
+$background-color: #f4f4f4;
+$toolbar-background-color: $primary-color;
+$toolbar-text-color: white;
+
+
+// Customize the background color of the expanded mat-menu to blue.
+:root {
+  @include mat.menu-overrides((
+    container-color: $primary-color,
+    item-label-text-color: $button-text-color,
+    item-hover-state-layer-color: $hover-color,
+  ));
+}
 
 html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+.mat-mdc-menu-item:focus {
+  background-color: transparent !important;
+}
+.mat-mdc-menu-item:hover {
+  background-color: $hover-color !important;
+}
+/* Active link color */
+/* Active link color for mat-menu items */
+.mat-mdc-menu-item.active-link {
+  background-color: $active-link-color !important;  /* Apply the active link color */
+}
+.mat-mdc-menu-content {
+  padding-bottom: 0 !important;
+}
+
