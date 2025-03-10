@@ -9,6 +9,7 @@
     width: 100%;
     height: 300px;
     overflow: hidden;
+    position: relative;  /* Needed to position header over the image */
     
     img {
       width: 100%;
@@ -16,6 +17,21 @@
       object-fit: cover;
     }
   }
+  
+  .portfolio-header {
+    position: absolute; /* This will position the header over the image */
+    top: 50%;  /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to truly center it */
+    color: white; /* Make the text visible over the image */
+    text-align: center;
+    font-size: 2rem; /* Default font size */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent background for readability */
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  
   
   .content {
     display: grid;
@@ -32,3 +48,27 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+  
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+
+    
+    // .portfolio-header {
+    //   font-size: 1.5rem; /* Smaller text on screens smaller than 768px */
+    // }
+  }
+  
+  @media (max-width: 480px) {
+
+
+    // .portfolio-header {
+    //   font-size: 4rem !important; /* Even smaller text on very small screens */
+    //   color: green; /* Change the color to green */
+    // }
+  }
+
+//   .portfolio-header {
+//     font-size: 2rem; /* Default font size */
+//     font-size: calc(1rem + 1vw); /* Fallback for responsive scaling */
+//   }

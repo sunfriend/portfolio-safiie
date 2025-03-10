@@ -11,4 +11,5 @@ export class PortfolioContentComponent {
   @Input() imageSrc: string = '';
   @Input() imageAlt: string = '';
   @Input() contentBlocks: string[] = [];
+  @Input() headerTitle: string = 'Default Header'; // Default header title
 }
