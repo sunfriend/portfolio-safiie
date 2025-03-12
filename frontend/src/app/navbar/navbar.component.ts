@@ -8,10 +8,11 @@ import { MatListModule } from '@angular/material/list';
 import { HamburgerComponent } from '../hamburger/hamburger.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatMenuModule } from '@angular/material/menu';
+import { MenuItemComponent } from '../menu-item/menu-item.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatMenuModule, MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
+  imports: [MenuItemComponent, MatMenuModule, MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
