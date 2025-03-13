@@ -108,17 +108,6 @@
         Home
       </button>
 
-      <app-menu-item
-        label="Dashboard"
-        link="/dashboard"
-        [dropdownItems]="[
-          { label: 'Settings', link: '/settings' },
-          { label: 'Profile', link: '/profile' },
-          { label: 'Student Learning', link: '/student-learning'}
-        ]"
-      >
-      </app-menu-item>
-
       <!-- First Dropdown -->
       <button
         mat-button
@@ -171,7 +160,19 @@
             Instructional Strategies
           </button>
         </div>
+
+        <app-menu-item class="custom-menu-item1"
+          label="Dashboard"
+          link="/dashboard"
+          [dropdownItems]="[
+            { label: 'Settings', link: '/settings' },
+            { label: 'Profile', link: '/profile' },
+            { label: 'Student Learning', link: '/student-learning'}
+          ]"
+        >
+        </app-menu-item>
       </mat-menu>
+
 
       <!-- Second Dropdown -->
       <button

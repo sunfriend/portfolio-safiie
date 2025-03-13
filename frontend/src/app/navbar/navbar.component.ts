@@ -61,9 +61,13 @@ export class NavbarComponent {
   
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
+    if (toElement && toElement.closest('.custom-menu-item1')) {
+      console.log("Custom: ", toElement);
+    }
     if (toElement && toElement.closest('.mat-mdc-menu-content')) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
+
     this.timedOutCloser = setTimeout(() => {
       if (this.openMenuTrigger === trigger) {
         trigger.closeMenu();
