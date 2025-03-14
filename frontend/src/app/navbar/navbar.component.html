@@ -212,7 +212,7 @@
         <app-menu-item
         (mouseleave)="mouseLeave(menu1Trigger, $event)"
         (childMenuClosed)="childMenuClosed($event)"
-        label="Student Learning"
+        label="Learning Environments"
         link="/learning-environments"
         [dropdownItems]="[
           { label: 'Syllabus', link: '/syllabus' },
@@ -232,6 +232,66 @@
       ]"
     >
     </app-menu-item>
+
+    <app-menu-item
+      (mouseleave)="mouseLeave(menu1Trigger, $event)"
+      (childMenuClosed)="childMenuClosed($event)"
+      label="Planning for Instruction"
+      link="/planning-for-instruction"
+      [dropdownItems]="[
+        { label: 'Science Lesson Plan', link: '/science-lesson-plan' },
+        { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice-lesson-plan-2' },
+      ]"
+    >
+    </app-menu-item>
+
+    <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Instructional Strategies"
+    link="/instructional-strategies"
+    [dropdownItems]="[
+      { label: 'Concept Attainment Presentation', link: '/concept-attainment-presentation' },
+      { label: 'Social Studies Lesson Plan', link: '/social-studies-lesson-plan' },
+    ]"
+  >
+  </app-menu-item>
+
+  <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Professional Responsibilities"
+    link="/professional-responsibilities"
+    [dropdownItems]="[
+      { label: 'Gifted Talented Research Project', link: '/gifted-talented-research-project' },
+      { label: 'Micro Teaching Reflection', link: '/micro-teaching-reflection' },
+    ]"
+  >
+  </app-menu-item>
+
+  <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Collaboration and Leadership"
+    link="/collaboration-and-leadership"
+    [dropdownItems]="[
+      { label: 'Exceptionality Chapter Summary', link: '/exceptionality-chapter-summary' },
+      { label: 'Cooperating Teacher Evaluation', link: '/cooperating-teacher-evaluation' },
+    ]"
+  >
+  </app-menu-item>
+
+  <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Racial Consciousness"
+    link="/racial-consciousness"
+    [dropdownItems]="[
+      { label: 'Gifted Talented Research Project', link: '/gifted-talented-research-project' },
+      { label: 'Teaching Indigenous History Presentation', link: '/teaching-indigenous-history-presentation' },
+    ]"
+  >
+  </app-menu-item>
 
         </div>
       </mat-menu>
