@@ -197,18 +197,41 @@
         >
      
          
-          <app-menu-item
+        <app-menu-item
           (mouseleave)="mouseLeave(menu1Trigger, $event)"
           (childMenuClosed)="childMenuClosed($event)"
-          label="Dashboard"
-          link="/dashboard"
+          label="Student Learning"
+          link="/student-learning"
           [dropdownItems]="[
-            { label: 'Settings', link: '/settings' },
-            { label: 'Profile', link: '/profile' },
-            { label: 'Student Learning', link: '/student-learning' }
+            { label: 'Literacy Log', link: '/literacy-log' },
+            { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice' },
           ]"
         >
         </app-menu-item>
+
+        <app-menu-item
+        (mouseleave)="mouseLeave(menu1Trigger, $event)"
+        (childMenuClosed)="childMenuClosed($event)"
+        label="Student Learning"
+        link="/learning-environments"
+        [dropdownItems]="[
+          { label: 'Syllabus', link: '/syllabus' },
+          { label: 'Literacy Writing Assignment', link: '/literacy-writing-assignment' },
+        ]"
+      >
+      </app-menu-item>
+
+      <app-menu-item
+      (mouseleave)="mouseLeave(menu1Trigger, $event)"
+      (childMenuClosed)="childMenuClosed($event)"
+      label="Assessment"
+      link="/assessment"
+      [dropdownItems]="[
+        { label: 'Social Studies Lesson Plan', link: '/social-studies-lesson-plan' },
+        { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice-lesson-plan' },
+      ]"
+    >
+    </app-menu-item>
 
         </div>
       </mat-menu>

@@ -26,6 +26,12 @@ import { LearningEnvironmentsComponent } from './learning-environments/learning-
 import { SchoolAndWorkExperienceComponent } from './school-and-work-experience/school-and-work-experience.component';
 import { FieldExperienceComponent } from './field-experience/field-experience.component';
 import { SepComponent } from './sep/sep.component';
+import { LiteracyLogComponent } from './literacy-log/literacy-log.component';
+import { TheoryToPracticeComponent } from './theory-to-practice/theory-to-practice.component';
+import { SyllabusComponent } from './syllabus/syllabus.component';
+import { LiteracyWritingAssignmentComponent } from './literacy-writing-assignment/literacy-writing-assignment.component';
+import { TheoryToPracticeLessonPlanComponent } from './theory-to-practice-lesson-plan/theory-to-practice-lesson-plan.component';
+import { SocialStudiesLessonPlanComponent } from './social-studies-lesson-plan/social-studies-lesson-plan.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +48,14 @@ export const routes: Routes = [
   { path: 'racial-consciousness-and-reflection', component: RacialConsciousnessAndReflectionComponent },
   { path: 'school-and-work-experience', component: SchoolAndWorkExperienceComponent },
   { path: 'field-experience', component: FieldExperienceComponent},
-  {path: 'sep', component: SepComponent}
+  {path: 'sep', component: SepComponent},
+  {path: 'literacy-log', component: LiteracyLogComponent},
+  {path: 'theory-to-practice', component: TheoryToPracticeComponent},
+  {path: 'syllabus', component: SyllabusComponent},
+  {path: 'literacy-writing-assignment', component: LiteracyWritingAssignmentComponent},
+  {path: 'theory-to-practice-lesson-plan', component: TheoryToPracticeLessonPlanComponent},
+  {path: 'social-studies-lesson-plan', component: SocialStudiesLessonPlanComponent}
+  
 ];
 
 @NgModule({
