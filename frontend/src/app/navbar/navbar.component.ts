@@ -19,7 +19,7 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 export class NavbarComponent {
 
   menuOpen: boolean = false;
-  childClosed: boolean = false;
+  childOpen: boolean = false;
   @ViewChild('drawer') drawer!: MatSidenav;
   
   constructor(private breakpointObserver: BreakpointObserver) {
@@ -53,10 +53,7 @@ export class NavbarComponent {
   
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
-    if (toElement && toElement.closest('.custom-menu-item1')) {
-      console.log("Custom: ", toElement);
-    }
-    if (toElement && toElement.closest('.mat-mdc-menu-content')) {
+    if (toElement && toElement.closest('.mat-mdc-menu-content') || this.childOpen) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 
@@ -68,9 +65,10 @@ export class NavbarComponent {
     }, 200);
   }
   
-  childMenuClosed(event: boolean) {
-    console.log("Child mouse leave");
-    console.log(event);
+  childMenuClosed(isChildOpened: boolean) {
+    console.log("IS child opened: ", isChildOpened);
+    console.log("Event passed: ", event);
+    this.childOpen = isChildOpened;
   }
 
 }

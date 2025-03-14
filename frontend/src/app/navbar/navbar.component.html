@@ -162,6 +162,7 @@
         </div>
 
         <app-menu-item 
+        (mouseleave)="mouseLeave(menu1Trigger, $event)"
           (childMenuClosed)="childMenuClosed($event)"
           label="Dashboard"
           link="/dashboard"

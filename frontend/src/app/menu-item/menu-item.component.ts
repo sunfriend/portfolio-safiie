@@ -36,7 +36,7 @@ export class MenuItemComponent implements AfterViewInit {
       this.menuTrigger.closeMenu();
 
 
-      console.log('Ng Init closing menu');
+      console.log('Ng¸¸¸closing menu');
     });
   }
 
@@ -45,8 +45,7 @@ export class MenuItemComponent implements AfterViewInit {
     event.preventDefault();
     event.stopPropagation();
     this.menuTrigger.openMenu();
-    if (!this.isMenuOpen) {
-    }
+    this.childMenuClosed.emit(this.isMenuOpen)
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
