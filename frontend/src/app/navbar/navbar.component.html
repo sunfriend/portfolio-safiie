@@ -157,19 +157,6 @@
             Field Experience
           </button>
         </div>
-
-        <app-menu-item
-          (mouseleave)="mouseLeave(menu1Trigger, $event)"
-          (childMenuClosed)="childMenuClosed($event)"
-          label="Dashboard"
-          link="/dashboard"
-          [dropdownItems]="[
-            { label: 'Settings', link: '/settings' },
-            { label: 'Profile', link: '/profile' },
-            { label: 'Student Learning', link: '/student-learning' }
-          ]"
-        >
-        </app-menu-item>
       </mat-menu>
 
       <!-- Second Dropdown -->
@@ -182,7 +169,7 @@
         (mouseleave)="mouseLeave(menu3Trigger, $event)"
         [matMenuTriggerFor]="menu3"
         routerLink="/sep"
-        routerLink="active-link"
+        routerLinkActive="active-link"
       >
       
        <div>SEP's
