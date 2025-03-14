@@ -107,6 +107,9 @@
       <button mat-button routerLink="/" routerLinkActive="active-link">
         Home
       </button>
+      <button mat-button routerLink="/philosophy" routerLinkActive="active-link">
+        Philosophy Statement
+      </button>
 
       <!-- First Dropdown -->
       <button
@@ -115,8 +118,9 @@
         (mouseenter)="mouseEnter(menu1Trigger)"
         (mouseleave)="mouseLeave(menu1Trigger, $event)"
         [matMenuTriggerFor]="menu1"
+        routerLink="/philosophy" routerLinkActive="active-link"
       >
-        Teaching
+        School And Work experience
       </button>
 
       <mat-menu #menu1="matMenu" [hasBackdrop]="false">
