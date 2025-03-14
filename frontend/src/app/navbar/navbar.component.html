@@ -161,7 +161,8 @@
           </button>
         </div>
 
-        <app-menu-item class="custom-menu-item1"
+        <app-menu-item 
+          (childMenuClosed)="childMenuClosed($event)"
           label="Dashboard"
           link="/dashboard"
           [dropdownItems]="[

@@ -19,6 +19,7 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 export class NavbarComponent {
 
   menuOpen: boolean = false;
+  childClosed: boolean = false;
   @ViewChild('drawer') drawer!: MatSidenav;
   
   constructor(private breakpointObserver: BreakpointObserver) {
@@ -32,15 +33,6 @@ export class NavbarComponent {
   closeSidenav(drawer: any) {
     drawer.close();
   }
-
-  // closeMenu(trigger: any) {
-  //   console.log("closed");
-  //   trigger.closeMenu();
-  // }
-  //   openMenu(trigger: any) {
-  //   console.log("opened");
-  //   trigger.openMenu();
-  // }
 
   timedOutCloser: any;
   openMenuTrigger: any; // Track currently open menu
@@ -76,5 +68,9 @@ export class NavbarComponent {
     }, 200);
   }
   
+  childMenuClosed(event: boolean) {
+    console.log("Child mouse leave");
+    console.log(event);
+  }
 
 }

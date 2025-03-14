@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +21,7 @@ export class MenuItemComponent implements AfterViewInit {
   @Input() label: string = '';
   @Input() link: string = '';
   @Input() dropdownItems: { label: string; link: string }[] = [];
+  @Output() childMenuClosed = new EventEmitter<boolean>();
 
   @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
   isMenuOpen = false;
@@ -33,15 +34,18 @@ export class MenuItemComponent implements AfterViewInit {
     this.menuTrigger.menuClosed.subscribe(() => {
       this.isMenuOpen = false;
       this.menuTrigger.closeMenu();
+
+
+      console.log('Ng Init closing menu');
     });
   }
 
   toggleMenu(event: MouseEvent) {
+    
     event.preventDefault();
     event.stopPropagation();
-  
+    this.menuTrigger.openMenu();
     if (!this.isMenuOpen) {
-      this.menuTrigger.openMenu();
     }
   }
 
@@ -54,5 +58,6 @@ export class MenuItemComponent implements AfterViewInit {
     console.log("Close element: ", toElement);
     console.log('closing menu');
     this.menuTrigger.closeMenu();
+    this.childMenuClosed.emit(this.isMenuOpen);
   }
 }
