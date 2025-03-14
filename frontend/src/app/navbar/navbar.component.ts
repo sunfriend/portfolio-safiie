@@ -66,8 +66,6 @@ export class NavbarComponent {
   }
   
   childMenuClosed(isChildOpened: boolean) {
-    console.log("IS child opened: ", isChildOpened);
-    console.log("Event passed: ", event);
     this.childOpen = isChildOpened;
   }
 

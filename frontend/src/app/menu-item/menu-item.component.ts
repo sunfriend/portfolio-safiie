@@ -34,9 +34,6 @@ export class MenuItemComponent implements AfterViewInit {
     this.menuTrigger.menuClosed.subscribe(() => {
       this.isMenuOpen = false;
       this.menuTrigger.closeMenu();
-
-
-      console.log('Ng¸¸¸closing menu');
     });
   }
 
@@ -54,8 +51,6 @@ export class MenuItemComponent implements AfterViewInit {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 
-    console.log("Close element: ", toElement);
-    console.log('closing menu');
     this.menuTrigger.closeMenu();
     this.childMenuClosed.emit(this.isMenuOpen);
   }
