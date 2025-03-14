@@ -1,20 +1,23 @@
 /* menu-item.component.scss */
 .menu-item {
-    display: flex;
-    align-items: center;
-    
-    button {
-        margin: 0;
-    }
-    a {
-        padding-left: 0 !important;
-    }
+  display: flex;
+  align-items: center;
+  button {
+    margin: 0;
 
-    mat-icon {
-        transition: transform 0.3s ease-in-out;
-      }
-      
-      .rotated {
-        transform: rotate(90deg);
-      }
+    color: white;
   }
+  a {
+    padding-left: 0 !important;
+
+    color: white;
+  }
+
+  mat-icon {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .rotated {
+    transform: rotate(90deg);
+  }
+}
