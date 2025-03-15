@@ -1,10 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    [mode]="'over'"
-    [opened]="false"
-    class="sidenav"
-  >
+  <mat-sidenav #drawer [mode]="'over'" [opened]="false" class="sidenav">
     <div class="sidenav-links">
       <button
         mat-button
@@ -112,90 +107,179 @@
       <button mat-button routerLink="/" routerLinkActive="active-link">
         Home
       </button>
+      <button
+        mat-button
+        routerLink="/philosophy"
+        routerLinkActive="active-link"
+      >
+        Philosophy Statement
+      </button>
+
       <!-- First Dropdown -->
       <button
         mat-button
         #menu1Trigger="matMenuTrigger"
         (mouseenter)="mouseEnter(menu1Trigger)"
-        (mouseleave)="mouseLeave(menu1Trigger)"
+        (mouseleave)="mouseLeave(menu1Trigger, $event)"
         [matMenuTriggerFor]="menu1"
+        routerLink="/school-and-work-experience"
+        routerLinkActive="active-link"
       >
-        Teaching
+        <div>School And Work experience
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
       </button>
 
       <mat-menu #menu1="matMenu" [hasBackdrop]="false">
         <div
           (mouseenter)="mouseEnter(menu1Trigger)"
-          (mouseleave)="mouseLeave(menu1Trigger)"
+          (mouseleave)="mouseLeave(menu1Trigger, $event)"
         >
-          <button mat-menu-item routerLink="/student-learning" routerLinkActive="active-link">
-            Student Learning
+          <button
+            mat-menu-item
+            routerLink="/resume"
+            routerLinkActive="active-link"
+          >
+            Resume
           </button>
-          <button mat-menu-item routerLink="/learning-environments" routerLinkActive="active-link">
-            Learning Environments
+          <button
+            mat-menu-item
+            routerLink="/pre-student-teaching"
+            routerLinkActive="active-link"
+          >
+            Pre Student Teaching
           </button>
-          <button mat-menu-item routerLink="/assessment" routerLinkActive="active-link">Assessment</button>
-          <button mat-menu-item routerLink="/planning-for-instruction" routerLinkActive="active-link">
-            Planning for Instruction
-          </button>
-          <button mat-menu-item routerLink="/instructional-strategies" routerLinkActive="active-link">
-            Instructional Strategies
+          <button
+            mat-menu-item
+            routerLink="/field-experience"
+            routerLinkActive="active-link"
+          >
+            Field Experience
           </button>
         </div>
       </mat-menu>
 
       <!-- Second Dropdown -->
-      <button
-        mat-button
-        #menu2Trigger="matMenuTrigger"
-        (mouseenter)="mouseEnter(menu2Trigger)"
-        (mouseleave)="mouseLeave(menu2Trigger)"
-        [matMenuTriggerFor]="menu2"
-      >
-        Professional
-      </button>
-
-      <mat-menu #menu2="matMenu" [hasBackdrop]="false">
-        <div
-          (mouseenter)="mouseEnter(menu2Trigger)"
-          (mouseleave)="mouseLeave(menu2Trigger)"
-        >
-          <button mat-menu-item routerLink="/resume" routerLinkActive="active-link">Resume</button>
-          <button mat-menu-item routerLink="/professional-responsibilities" routerLinkActive="active-link">
-            Professional Responsibilities
-          </button>
-          <button mat-menu-item routerLink="/collaboration-and-leadership" routerLinkActive="active-link">
-            Collaboration and Leadership
-          </button>
-        </div>
-      </mat-menu>
-
+    
       <!-- Third Dropdown -->
       <button
         mat-button
         #menu3Trigger="matMenuTrigger"
         (mouseenter)="mouseEnter(menu3Trigger)"
-        (mouseleave)="mouseLeave(menu3Trigger)"
+        (mouseleave)="mouseLeave(menu3Trigger, $event)"
         [matMenuTriggerFor]="menu3"
+        routerLink="/sep"
+        routerLinkActive="active-link"
       >
-        More
+      
+       <div>SEP's
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
       </button>
 
       <mat-menu #menu3="matMenu" [hasBackdrop]="false">
         <div
           (mouseenter)="mouseEnter(menu3Trigger)"
-          (mouseleave)="mouseLeave(menu3Trigger)"
+          (mouseleave)="mouseLeave(menu3Trigger, $event)"
         >
-          <button mat-menu-item routerLink="/philosophy" routerLinkActive="active-link">Philosophy</button>
-          <button mat-menu-item routerLink="/pre-student-teaching" routerLinkActive="active-link">
-            Pre Student Teaching
-          </button>
-          <button
-            mat-menu-item
-            routerLink="/racial-consciousness-and-reflection" routerLinkActive="active-link"
-          >
-            Racial Consciousness and Reflection
-          </button>
+     
+         
+        <app-menu-item
+          (mouseleave)="mouseLeave(menu1Trigger, $event)"
+          (childMenuClosed)="childMenuClosed($event)"
+          label="Student Learning"
+          link="/student-learning"
+          [dropdownItems]="[
+            { label: 'Literacy Log', link: '/literacy-log' },
+            { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice' },
+          ]"
+        >
+        </app-menu-item>
+
+        <app-menu-item
+        (mouseleave)="mouseLeave(menu1Trigger, $event)"
+        (childMenuClosed)="childMenuClosed($event)"
+        label="Learning Environments"
+        link="/learning-environments"
+        [dropdownItems]="[
+          { label: 'Syllabus', link: '/syllabus' },
+          { label: 'Literacy Writing Assignment', link: '/literacy-writing-assignment' },
+        ]"
+      >
+      </app-menu-item>
+
+      <app-menu-item
+      (mouseleave)="mouseLeave(menu1Trigger, $event)"
+      (childMenuClosed)="childMenuClosed($event)"
+      label="Assessment"
+      link="/assessment"
+      [dropdownItems]="[
+        { label: 'Social Studies Lesson Plan', link: '/social-studies-lesson-plan' },
+        { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice-lesson-plan' },
+      ]"
+    >
+    </app-menu-item>
+
+    <app-menu-item
+      (mouseleave)="mouseLeave(menu1Trigger, $event)"
+      (childMenuClosed)="childMenuClosed($event)"
+      label="Planning for Instruction"
+      link="/planning-for-instruction"
+      [dropdownItems]="[
+        { label: 'Science Lesson Plan', link: '/science-lesson-plan' },
+        { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice-lesson-plan-2' },
+      ]"
+    >
+    </app-menu-item>
+
+    <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Instructional Strategies"
+    link="/instructional-strategies"
+    [dropdownItems]="[
+      { label: 'Concept Attainment Presentation', link: '/concept-attainment-presentation' },
+      { label: 'Social Studies Lesson Plan', link: '/social-studies-lesson-plan' },
+    ]"
+  >
+  </app-menu-item>
+
+  <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Professional Responsibilities"
+    link="/professional-responsibilities"
+    [dropdownItems]="[
+      { label: 'Gifted Talented Research Project', link: '/gifted-talented-research-project' },
+      { label: 'Micro Teaching Reflection', link: '/micro-teaching-reflection' },
+    ]"
+  >
+  </app-menu-item>
+
+  <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Collaboration and Leadership"
+    link="/collaboration-and-leadership"
+    [dropdownItems]="[
+      { label: 'Exceptionality Chapter Summary', link: '/exceptionality-chapter-summary' },
+      { label: 'Cooperating Teacher Evaluation', link: '/cooperating-teacher-evaluation' },
+    ]"
+  >
+  </app-menu-item>
+
+  <app-menu-item
+    (mouseleave)="mouseLeave(menu1Trigger, $event)"
+    (childMenuClosed)="childMenuClosed($event)"
+    label="Racial Consciousness"
+    link="/racial-consciousness"
+    [dropdownItems]="[
+      { label: 'Gifted Talented Research Project', link: '/gifted-talented-research-project' },
+      { label: 'Teaching Indigenous History Presentation', link: '/teaching-indigenous-history-presentation' },
+    ]"
+  >
+  </app-menu-item>
+
         </div>
       </mat-menu>
     </mat-toolbar>

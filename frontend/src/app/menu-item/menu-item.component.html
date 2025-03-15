@@ -1,0 +1,17 @@
+<div class="menu-item"  (mouseleave)="mouseLeave(menuTrigger, $event)">
+    <!-- Icon triggers dropdown -->
+    <button mat-icon-button [matMenuTriggerFor]="menu"  [matMenuTriggerFor]="menu" (click)="toggleMenu($event)">
+      <mat-icon [ngClass]="{'rotated': isMenuOpen}">arrow_forward</mat-icon>
+    </button>
+  
+    <!-- Link navigates to another page -->
+    <a mat-button [routerLink]="link">{{ label }}</a>
+  </div>
+  
+  <!-- Dropdown Menu -->
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item *ngFor="let item of dropdownItems" [routerLink]="item.link">
+      {{ item.label }}
+    </a>
+  </mat-menu>
+  

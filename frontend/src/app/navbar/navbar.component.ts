@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,18 +7,22 @@ import { MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/s
 import { MatListModule } from '@angular/material/list';
 import { HamburgerComponent } from '../hamburger/hamburger.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MenuItemComponent } from '../menu-item/menu-item.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatMenuModule, MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
+  imports: [MenuItemComponent, MatMenuModule, MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
 
   menuOpen: boolean = false;
+  childOpen: boolean = false;
   @ViewChild('drawer') drawer!: MatSidenav;
+  @ViewChild('menu1Trigger') menu1Trigger!: MatMenuTrigger;
+  @ViewChild('menu3Trigger') menu3Trigger!: MatMenuTrigger;
   
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).subscribe(result => {
@@ -31,15 +35,6 @@ export class NavbarComponent {
   closeSidenav(drawer: any) {
     drawer.close();
   }
-
-  // closeMenu(trigger: any) {
-  //   console.log("closed");
-  //   trigger.closeMenu();
-  // }
-  //   openMenu(trigger: any) {
-  //   console.log("opened");
-  //   trigger.openMenu();
-  // }
 
   timedOutCloser: any;
   openMenuTrigger: any; // Track currently open menu
@@ -58,14 +53,45 @@ export class NavbarComponent {
     this.openMenuTrigger = trigger; // Store the currently open menu
   }
   
-  mouseLeave(trigger: any) {
+  mouseLeave(trigger: any, event: MouseEvent) {
+    const toElement = event.relatedTarget as HTMLElement;
+    if (toElement && toElement.closest('.mat-mdc-menu-content') || this.childOpen) {
+      return; // Do not close if moving to the dropdown or back to the trigger
+    }
+
     this.timedOutCloser = setTimeout(() => {
       if (this.openMenuTrigger === trigger) {
         trigger.closeMenu();
         this.openMenuTrigger = null; // Reset tracking when closed
       }
-    }, 300);
+    }, 200);
   }
   
+  childMenuClosed(isChildOpened: boolean) {
+    this.childOpen = isChildOpened;
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    
+    const targetElement = event.target as HTMLElement;
+
+    console.log("Target: ", targetElement)
+    if (
+      this.menu1Trigger.menuOpen &&
+      !this.menu1Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(targetElement) &&
+      !targetElement.closest('.cdk-overlay-backdrop') // Ensure clicks inside are not treated as outside
+    ) {
+      this.menu1Trigger.closeMenu();
+    }
+
+    if (
+      this.menu3Trigger.menuOpen &&
+      !this.menu3Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(event.target as Node) &&
+      !targetElement?.closest('.cdk-overlay-backdrop')
+    ) {
+      this.menu3Trigger.closeMenu();
+    }
+  }
 
 }
