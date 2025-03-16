@@ -56,7 +56,6 @@ export class NavbarComponent {
   openMenuTrigger: any; // Track currently open menu
 
   mouseEnter(trigger: any) {
-    console.log("Mouse Enter")
     // Close any previously open menu
     if (this.openMenuTrigger && this.openMenuTrigger !== trigger) {
       this.openMenuTrigger.closeMenu();
@@ -71,7 +70,6 @@ export class NavbarComponent {
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
-    console.log("Mouse Leave")
     const toElement = event.relatedTarget as HTMLElement;
     if (
       (toElement && toElement.closest('.mat-mdc-menu-content')) ||
@@ -89,7 +87,6 @@ export class NavbarComponent {
   }
 
   childMenuClosed(isChildOpened: any) {
-    console.log(isChildOpened as HTMLElement)
     this.childOpen = isChildOpened;
   }
 }

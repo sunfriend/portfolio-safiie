@@ -47,7 +47,7 @@ export class MenuItemComponent implements AfterViewInit {
 
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
-    console.log(toElement.classList)
+
     if (toElement && toElement.closest(".mat-mdc-menu-content") && toElement.closest(".mat-mdc-menu-item")) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
