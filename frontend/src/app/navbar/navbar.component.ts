@@ -91,35 +91,4 @@ export class NavbarComponent {
   childMenuClosed(isChildOpened: boolean) {
     this.childOpen = isChildOpened;
   }
-
-  // @HostListener('document:click', ['$event'])
-  // handleClickOutside(event: Event) {
-  //   const targetElement = event.target as HTMLElement;
-
-  //   // Prevent closing the menu if the target is editable (e.g., input, textarea, contenteditable)
-  //   if (!this.menuOpen) {
-  //     return; // Do nothing if the click is on an input or editable element
-  //   }
-
-  //   console.log('Target: ', targetElement);
-  //   if (
-  //     this.menu1Trigger.menuOpen &&
-  //     !this.menu1Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(
-  //       targetElement
-  //     ) &&
-  //     !targetElement.closest('.cdk-overlay-backdrop') // Ensure clicks inside are not treated as outside
-  //   ) {
-  //     this.menu1Trigger.closeMenu();
-  //   }
-
-  //   if (
-  //     this.menu3Trigger.menuOpen &&
-  //     !this.menu3Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(
-  //       event.target as Node
-  //     ) &&
-  //     !targetElement?.closest('.cdk-overlay-backdrop')
-  //   ) {
-  //     this.menu3Trigger.closeMenu();
-  //   }
-  // }
 }

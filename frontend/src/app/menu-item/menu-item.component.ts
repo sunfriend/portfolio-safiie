@@ -38,7 +38,6 @@ export class MenuItemComponent implements AfterViewInit {
   }
 
   toggleMenu(event: MouseEvent) {
-    
     event.preventDefault();
     event.stopPropagation();
     this.menuTrigger.openMenu();
