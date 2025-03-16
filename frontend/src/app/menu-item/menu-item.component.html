@@ -1,4 +1,4 @@
-<div class="menu-item"  (mouseleave)="mouseLeave(menuTrigger, $event)">
+<div class="custom-mat-menu"  (mouseleave)="mouseLeave(menuTrigger, $event)">
     <!-- Icon triggers dropdown -->
     <button mat-icon-button [matMenuTriggerFor]="menu"  [matMenuTriggerFor]="menu" (click)="toggleMenu($event)">
       <mat-icon [ngClass]="{'rotated': isMenuOpen}">arrow_forward</mat-icon>
@@ -9,8 +9,8 @@
   </div>
   
   <!-- Dropdown Menu -->
-  <mat-menu #menu="matMenu" [hasBackdrop]="false">
-    <a mat-menu-item *ngFor="let item of dropdownItems" [routerLink]="item.link">
+  <mat-menu #menu="matMenu" [hasBackdrop]="false" class="custom-menu-content">
+    <a mat-menu-item *ngFor="let item of dropdownItems" [routerLink]="item.link" (mouseleave)="mouseLeave(menuTrigger, $event)">
       {{ item.label }}
     </a>
   </mat-menu>

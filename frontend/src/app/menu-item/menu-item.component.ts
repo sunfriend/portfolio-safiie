@@ -33,7 +33,7 @@ export class MenuItemComponent implements AfterViewInit {
 
     this.menuTrigger.menuClosed.subscribe(() => {
       this.isMenuOpen = false;
-      this.menuTrigger.closeMenu();
+      // this.menuTrigger.closeMenu();
     });
   }
 
@@ -46,9 +46,10 @@ export class MenuItemComponent implements AfterViewInit {
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
+    console.log('menu leave')
     const toElement = event.relatedTarget as HTMLElement;
-
-    if (toElement && toElement.closest(".mat-mdc-menu-content") && toElement.closest(".mat-mdc-menu-item")) {
+    // console.log(toElement)
+    if (toElement && toElement.closest(".mat-mdc-menu-content") || toElement.closest(".mat-mdc-menu-item")) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 

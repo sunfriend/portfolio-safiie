@@ -70,6 +70,7 @@ export class NavbarComponent {
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
+    console.log("Mouse Leave")
     const toElement = event.relatedTarget as HTMLElement;
     if (
       (toElement && toElement.closest('.mat-mdc-menu-content')) ||
@@ -83,7 +84,7 @@ export class NavbarComponent {
         trigger.closeMenu();
         this.openMenuTrigger = null; // Reset tracking when closed
       }
-    }, 200);
+    }, 60);
   }
 
   childMenuClosed(isChildOpened: any) {
