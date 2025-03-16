@@ -49,3 +49,9 @@ html, body {
 .custom-menu-content {
   margin-left: 5px;
 }
+
+th, td {
+  border: 1px solid black !important;
+  padding: 8px;
+  text-align: left;
+}

@@ -14,6 +14,7 @@ export class PortfolioContentComponent {
   @Input() imageAlt: string = '';
   @Input() contentBlocks: string[] = [];
   @Input() headerTitle: string = 'Default Header'; // Default header title
+  @Input() headerTitlePhrase: string | undefined;
 
    // Function to sanitize HTML content
    get sanitizedContent(): SafeHtml[] {
