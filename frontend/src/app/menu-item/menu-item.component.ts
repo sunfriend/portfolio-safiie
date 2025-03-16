@@ -33,21 +33,23 @@ export class MenuItemComponent implements AfterViewInit {
 
     this.menuTrigger.menuClosed.subscribe(() => {
       this.isMenuOpen = false;
-      this.menuTrigger.closeMenu();
+      // this.menuTrigger.closeMenu();
     });
   }
 
   toggleMenu(event: MouseEvent) {
-    
     event.preventDefault();
     event.stopPropagation();
-    this.menuTrigger.openMenu();
+    
+    
     this.childMenuClosed.emit(this.isMenuOpen)
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
+    console.log('menu leave')
     const toElement = event.relatedTarget as HTMLElement;
-    if (this.isMenuOpen) {
+    // console.log(toElement)
+    if (toElement && toElement.closest(".mat-mdc-menu-content") || toElement.closest(".mat-mdc-menu-item")) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 
