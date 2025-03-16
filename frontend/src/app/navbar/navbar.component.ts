@@ -3,7 +3,11 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import {
+  MatDrawerMode,
+  MatSidenav,
+  MatSidenavModule,
+} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HamburgerComponent } from '../hamburger/hamburger.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -12,24 +16,36 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MenuItemComponent, MatMenuModule, MatButtonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, HamburgerComponent],
+  imports: [
+    MenuItemComponent,
+    MatMenuModule,
+    MatButtonModule,
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    HamburgerComponent,
+  ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-
   menuOpen: boolean = false;
   childOpen: boolean = false;
   @ViewChild('drawer') drawer!: MatSidenav;
   @ViewChild('menu1Trigger') menu1Trigger!: MatMenuTrigger;
   @ViewChild('menu3Trigger') menu3Trigger!: MatMenuTrigger;
-  
+
   constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).subscribe(result => {
-      if (result.matches && this.drawer && this.drawer.opened) {
-        this.drawer.close();  // Ensure it's closed on smaller screens
-      }
-    });
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe((result) => {
+        if (result.matches && this.drawer && this.drawer.opened) {
+          this.drawer.close(); // Ensure it's closed on smaller screens
+        }
+      });
   }
 
   closeSidenav(drawer: any) {
@@ -38,13 +54,14 @@ export class NavbarComponent {
 
   timedOutCloser: any;
   openMenuTrigger: any; // Track currently open menu
-  
+
   mouseEnter(trigger: any) {
+    console.log("Mouse Enter")
     // Close any previously open menu
     if (this.openMenuTrigger && this.openMenuTrigger !== trigger) {
       this.openMenuTrigger.closeMenu();
     }
-  
+
     // Prevent closing and open the new one
     if (this.timedOutCloser) {
       clearTimeout(this.timedOutCloser);
@@ -52,10 +69,14 @@ export class NavbarComponent {
     trigger.openMenu();
     this.openMenuTrigger = trigger; // Store the currently open menu
   }
-  
+
   mouseLeave(trigger: any, event: MouseEvent) {
+    console.log("Mouse Leave")
     const toElement = event.relatedTarget as HTMLElement;
-    if (toElement && toElement.closest('.mat-mdc-menu-content') || this.childOpen) {
+    if (
+      (toElement && toElement.closest('.mat-mdc-menu-content')) ||
+      this.childOpen
+    ) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 
@@ -66,32 +87,39 @@ export class NavbarComponent {
       }
     }, 200);
   }
-  
+
   childMenuClosed(isChildOpened: boolean) {
     this.childOpen = isChildOpened;
   }
 
-  @HostListener('document:click', ['$event'])
-  handleClickOutside(event: Event) {
-    
-    const targetElement = event.target as HTMLElement;
+  // @HostListener('document:click', ['$event'])
+  // handleClickOutside(event: Event) {
+  //   const targetElement = event.target as HTMLElement;
 
-    console.log("Target: ", targetElement)
-    if (
-      this.menu1Trigger.menuOpen &&
-      !this.menu1Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(targetElement) &&
-      !targetElement.closest('.cdk-overlay-backdrop') // Ensure clicks inside are not treated as outside
-    ) {
-      this.menu1Trigger.closeMenu();
-    }
+  //   // Prevent closing the menu if the target is editable (e.g., input, textarea, contenteditable)
+  //   if (!this.menuOpen) {
+  //     return; // Do nothing if the click is on an input or editable element
+  //   }
 
-    if (
-      this.menu3Trigger.menuOpen &&
-      !this.menu3Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(event.target as Node) &&
-      !targetElement?.closest('.cdk-overlay-backdrop')
-    ) {
-      this.menu3Trigger.closeMenu();
-    }
-  }
+  //   console.log('Target: ', targetElement);
+  //   if (
+  //     this.menu1Trigger.menuOpen &&
+  //     !this.menu1Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(
+  //       targetElement
+  //     ) &&
+  //     !targetElement.closest('.cdk-overlay-backdrop') // Ensure clicks inside are not treated as outside
+  //   ) {
+  //     this.menu1Trigger.closeMenu();
+  //   }
 
+  //   if (
+  //     this.menu3Trigger.menuOpen &&
+  //     !this.menu3Trigger.menu?.templateRef?.elementRef?.nativeElement.contains(
+  //       event.target as Node
+  //     ) &&
+  //     !targetElement?.closest('.cdk-overlay-backdrop')
+  //   ) {
+  //     this.menu3Trigger.closeMenu();
+  //   }
+  // }
 }
