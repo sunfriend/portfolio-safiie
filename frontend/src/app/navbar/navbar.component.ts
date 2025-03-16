@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,7 +31,7 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy{
   childOpen: boolean = false;
 
   @ViewChild('drawer') drawer!: MatSidenav;
@@ -47,6 +47,26 @@ export class NavbarComponent {
         }
       });
   }
+  ngOnInit() {
+    document.addEventListener("mousemove", this.trackMouseMovement);
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener("mousemove", this.trackMouseMovement);
+  }
+
+  trackMouseMovement = (event: MouseEvent) => {
+    // const menu = document.querySelector('.mat-mdc-menu-content');
+    // const trigger = document.querySelector('.menu-trigger');
+
+    // if (!menu?.contains(event.target as Node) && !trigger?.contains(event.target as Node)) {
+    //   if (this.openMenuTrigger) {
+    //     this.openMenuTrigger.closeMenu();
+    //     console.log("Trigger")
+    //     this.openMenuTrigger = null;
+    //   }
+    // }
+  };
 
   closeSidenav(drawer: any) {
     drawer.close();
@@ -70,7 +90,6 @@ export class NavbarComponent {
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
-    console.log("Mouse Leave")
     const toElement = event.relatedTarget as HTMLElement;
     if (
       (toElement && (toElement.closest('.mat-mdc-menu-content')) ||
@@ -88,7 +107,6 @@ export class NavbarComponent {
   }
 
   childMenuClosed(isChildOpened: any) {
-    console.log("Child triggered")
     console.log(isChildOpened)
     this.childOpen = isChildOpened;
   }
