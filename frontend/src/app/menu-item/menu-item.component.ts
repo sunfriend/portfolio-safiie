@@ -49,7 +49,7 @@ export class MenuItemComponent implements AfterViewInit {
     console.log('menu leave')
     const toElement = event.relatedTarget as HTMLElement;
     // console.log(toElement)
-    if (toElement && toElement.closest(".mat-mdc-menu-content") || toElement.closest(".mat-mdc-menu-item")) {
+    if (toElement && toElement.closest(".mat-mdc-menu-content")) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 

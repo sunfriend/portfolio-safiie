@@ -32,8 +32,8 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  menuOpen: boolean = false;
   childOpen: boolean = false;
+
   @ViewChild('drawer') drawer!: MatSidenav;
   @ViewChild('menu1Trigger') menu1Trigger!: MatMenuTrigger;
   @ViewChild('menu3Trigger') menu3Trigger!: MatMenuTrigger;
@@ -73,8 +73,8 @@ export class NavbarComponent {
     console.log("Mouse Leave")
     const toElement = event.relatedTarget as HTMLElement;
     if (
-      (toElement && toElement.closest('.mat-mdc-menu-content')) ||
-      this.childOpen
+      (toElement && (toElement.closest('.mat-mdc-menu-content')) ||
+      this.childOpen)
     ) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
@@ -84,10 +84,12 @@ export class NavbarComponent {
         trigger.closeMenu();
         this.openMenuTrigger = null; // Reset tracking when closed
       }
-    }, 0);
+    }, 200);
   }
 
   childMenuClosed(isChildOpened: any) {
+    console.log("Child triggered")
+    console.log(isChildOpened)
     this.childOpen = isChildOpened;
   }
 }
