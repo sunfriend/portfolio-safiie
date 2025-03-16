@@ -40,13 +40,15 @@ export class MenuItemComponent implements AfterViewInit {
   toggleMenu(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.menuTrigger.openMenu();
+    
+    
     this.childMenuClosed.emit(this.isMenuOpen)
   }
 
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
-    if (this.isMenuOpen) {
+    console.log(toElement.classList)
+    if (toElement && toElement.closest(".mat-mdc-menu-content") && toElement.closest(".mat-mdc-menu-item")) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
 

@@ -9,7 +9,7 @@
   </div>
   
   <!-- Dropdown Menu -->
-  <mat-menu #menu="matMenu">
+  <mat-menu #menu="matMenu" [hasBackdrop]="false">
     <a mat-menu-item *ngFor="let item of dropdownItems" [routerLink]="item.link">
       {{ item.label }}
     </a>

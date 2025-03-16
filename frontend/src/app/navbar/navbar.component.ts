@@ -88,7 +88,8 @@ export class NavbarComponent {
     }, 200);
   }
 
-  childMenuClosed(isChildOpened: boolean) {
+  childMenuClosed(isChildOpened: any) {
+    console.log(isChildOpened as HTMLElement)
     this.childOpen = isChildOpened;
   }
 }
