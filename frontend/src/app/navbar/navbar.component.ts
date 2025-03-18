@@ -13,6 +13,7 @@ import { HamburgerComponent } from '../hamburger/hamburger.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
+import { HoverService } from '../services/hover.service';
 
 @Component({
   selector: 'app-navbar',
@@ -31,14 +32,14 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit, OnDestroy{
+export class NavbarComponent implements OnInit{
   childOpen: boolean = false;
 
   @ViewChild('drawer') drawer!: MatSidenav;
   @ViewChild('menu1Trigger') menu1Trigger!: MatMenuTrigger;
   @ViewChild('menu3Trigger') menu3Trigger!: MatMenuTrigger;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(private breakpointObserver: BreakpointObserver, private hoverService: HoverService) {
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.Tablet])
       .subscribe((result) => {
@@ -47,26 +48,14 @@ export class NavbarComponent implements OnInit, OnDestroy{
         }
       });
   }
-  ngOnInit() {
-    document.addEventListener("mousemove", this.trackMouseMovement);
+  ngOnInit(): void {
+    this.hoverService.hover$.subscribe(state => {
+      if (this.menu3Trigger) {
+
+        this.menu3Trigger.closeMenu();
+      }
+    });
   }
-
-  ngOnDestroy() {
-    document.removeEventListener("mousemove", this.trackMouseMovement);
-  }
-
-  trackMouseMovement = (event: MouseEvent) => {
-    // const menu = document.querySelector('.mat-mdc-menu-content');
-    // const trigger = document.querySelector('.menu-trigger');
-
-    // if (!menu?.contains(event.target as Node) && !trigger?.contains(event.target as Node)) {
-    //   if (this.openMenuTrigger) {
-    //     this.openMenuTrigger.closeMenu();
-    //     console.log("Trigger")
-    //     this.openMenuTrigger = null;
-    //   }
-    // }
-  };
 
   closeSidenav(drawer: any) {
     drawer.close();
