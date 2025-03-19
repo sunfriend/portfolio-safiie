@@ -1,14 +1,14 @@
-<div class="portfolio-container">
+<div class="portfolio-container" (mouseenter)="sendImageCursorListener()">
     <div class="top-image">
-      <img [src]="imageSrc" [alt]="imageAlt" />
+      <img [src]="imageSrc" [alt]="imageAlt"/>
       <header class="portfolio-header">
         <h1>{{ headerTitle }}</h1>
+        <h6>{{ headerTitlePhrase }}</h6>
       </header>
     </div>
     
     <div class="content">
       <div class="column" *ngFor="let block of sanitizedContent" [innerHtml]="block">
-       
       </div>
     </div>
   </div>

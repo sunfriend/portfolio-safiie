@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
+import { HoverService } from '../services/hover.service';
 
 @Component({
   selector: 'app-portfolio-content',
@@ -9,14 +10,23 @@ import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
   styleUrl: './portfolio-content.component.scss'
 })
 export class PortfolioContentComponent {
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private hoverService: HoverService) {}
   @Input() imageSrc: string = '';
   @Input() imageAlt: string = '';
   @Input() contentBlocks: string[] = [];
   @Input() headerTitle: string = 'Default Header'; // Default header title
+  @Input() headerTitlePhrase: string | undefined;
 
-   // Function to sanitize HTML content
-   get sanitizedContent(): SafeHtml[] {
+  
+  // Function to sanitize HTML content
+  get sanitizedContent(): SafeHtml[] {
     return this.contentBlocks.map(block => this.sanitizer.bypassSecurityTrustHtml(block));
+  }
+
+  sendImageCursorListener() {
+    setTimeout(() => {
+      console.log("Hover over image")
+      this.hoverService.setHoverState(true);
+    }, 500)
   }
 }

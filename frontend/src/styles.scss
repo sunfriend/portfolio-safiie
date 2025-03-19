@@ -41,11 +41,17 @@ html, body {
   background-color: $active-link-color !important;  /* Apply the active link color */
 }
 .mat-mdc-menu-content {
-  padding-bottom: 0 !important;
+
   margin-left: 5px !important;
 }
 
 
 .custom-menu-content {
   margin-left: 5px;
+}
+
+th, td {
+  border: 1px solid black !important;
+  padding: 8px;
+  text-align: left;
 }
