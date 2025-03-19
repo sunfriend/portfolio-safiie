@@ -14,6 +14,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { HoverService } from '../services/hover.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -38,6 +39,7 @@ export class NavbarComponent implements OnInit{
   @ViewChild('drawer') drawer!: MatSidenav;
   @ViewChild('menu1Trigger') menu1Trigger!: MatMenuTrigger;
   @ViewChild('menu3Trigger') menu3Trigger!: MatMenuTrigger;
+  private hoverSubscription: Subscription | undefined;
 
   constructor(private breakpointObserver: BreakpointObserver, private hoverService: HoverService) {
     this.breakpointObserver
@@ -49,9 +51,8 @@ export class NavbarComponent implements OnInit{
       });
   }
   ngOnInit(): void {
-    this.hoverService.hover$.subscribe(state => {
+    this.hoverSubscription = this.hoverService.hover$.subscribe(state => {
       if (this.menu3Trigger) {
-
         this.menu3Trigger.closeMenu();
       }
     });

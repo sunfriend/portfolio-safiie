@@ -24,7 +24,9 @@ export class PortfolioContentComponent {
   }
 
   sendImageCursorListener() {
-    console.log("Hover over image")
-    this.hoverService.setHoverState(true);
+    setTimeout(() => {
+      console.log("Hover over image")
+      this.hoverService.setHoverState(true);
+    }, 500)
   }
 }
