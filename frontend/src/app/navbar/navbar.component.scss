@@ -56,13 +56,17 @@ $toolbar-text-color: white;
 
 mat-sidenav-content {
   flex-grow: 1;
-  background-color: $background-color;
+  // background-color: $background-color;
   overflow: auto;
 }
 
 mat-toolbar {
+  top: 0;
+  position: fixed;
   padding: 10px 20px;
-  background-color: $toolbar-background-color;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 mat-toolbar .title {
