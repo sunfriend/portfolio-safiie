@@ -41,7 +41,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements AfterViewInit {
   childOpen: boolean = false;
 
   @ViewChild('drawer') drawer!: MatSidenav;
@@ -65,13 +65,13 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         }
       });
   }
-  ngOnInit(): void {
-    this.hoverSubscription = this.hoverService.hover$.subscribe((state) => {
-      if (this.menu3Trigger) {
-        this.menu3Trigger.closeMenu();
-      }
-    });
-  }
+  // ngOnInit(): void {
+  //   this.hoverSubscription = this.hoverService.hover$.subscribe((state) => {
+  //     if (this.menu3Trigger) {
+  //       this.menu3Trigger.closeMenu();
+  //     }
+  //   });
+  // }
 
 ngAfterViewInit() {
   this.sidenavContent.elementScrolled().subscribe(() => {
