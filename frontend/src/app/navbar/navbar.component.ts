@@ -1,4 +1,11 @@
-import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {
   MatDrawerMode,
   MatSidenav,
+  MatSidenavContent,
   MatSidenavModule,
 } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -33,7 +41,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit, AfterViewInit {
   childOpen: boolean = false;
 
   @ViewChild('drawer') drawer!: MatSidenav;
@@ -41,7 +49,14 @@ export class NavbarComponent implements OnInit{
   @ViewChild('menu3Trigger') menu3Trigger!: MatMenuTrigger;
   private hoverSubscription: Subscription | undefined;
 
-  constructor(private breakpointObserver: BreakpointObserver, private hoverService: HoverService) {
+  timedOutCloser: any;
+  openMenuTrigger: any; // Track currently open menu
+  @ViewChild(MatSidenavContent, { static: true }) sidenavContent!: MatSidenavContent;
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private hoverService: HoverService
+  ) {
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.Tablet])
       .subscribe((result) => {
@@ -51,19 +66,25 @@ export class NavbarComponent implements OnInit{
       });
   }
   ngOnInit(): void {
-    this.hoverSubscription = this.hoverService.hover$.subscribe(state => {
+    this.hoverSubscription = this.hoverService.hover$.subscribe((state) => {
       if (this.menu3Trigger) {
         this.menu3Trigger.closeMenu();
       }
     });
   }
 
+ngAfterViewInit() {
+  this.sidenavContent.elementScrolled().subscribe(() => {
+    const scrollPosition = this.sidenavContent.getElementRef().nativeElement.scrollTop;
+    // console.log('Scroll Position:', scrollPosition);
+
+    this.onDocumentMousewheelEvent(scrollPosition);
+  });
+}
+
   closeSidenav(drawer: any) {
     drawer.close();
   }
-
-  timedOutCloser: any;
-  openMenuTrigger: any; // Track currently open menu
 
   mouseEnter(trigger: any) {
     // Close any previously open menu
@@ -82,8 +103,8 @@ export class NavbarComponent implements OnInit{
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
     if (
-      (toElement && (toElement.closest('.mat-mdc-menu-content')) ||
-      this.childOpen)
+      (toElement && toElement.closest('.mat-mdc-menu-content')) ||
+      this.childOpen
     ) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
@@ -97,7 +118,22 @@ export class NavbarComponent implements OnInit{
   }
 
   childMenuClosed(isChildOpened: any) {
-    console.log(isChildOpened)
+    console.log(isChildOpened);
     this.childOpen = isChildOpened;
+  }
+
+  onDocumentMousewheelEvent(scrollPos: number) {
+    let element = document.querySelector(
+      '.navbar-object'
+    ) as HTMLElement;
+    
+
+  
+      if (scrollPos > 100) {
+        element.classList.add('navbar-scroll-color');
+      } else {
+        element.classList.remove('navbar-scroll-color');
+      }
+    
   }
 }
