@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-menu-item',
@@ -16,6 +17,17 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatMenuModule,
   ],
+  animations: [
+    trigger('accordion', [
+      transition(':enter', [
+        style({ height: 0 }),
+        animate('4000ms', style({ "height": '*' })),
+      ]),
+      transition(':leave', [
+        animate('4000ms', style({ "height": 0 }))
+      ])
+    ]),
+  ]
 })
 export class MenuItemComponent implements AfterViewInit {
   @Input() label: string = '';

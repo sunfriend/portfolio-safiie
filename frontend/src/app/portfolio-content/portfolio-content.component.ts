@@ -23,9 +23,13 @@ export class PortfolioContentComponent {
     return this.contentBlocks.map(block => this.sanitizer.bypassSecurityTrustHtml(block));
   }
 
+  trackByFn(index: number, item: SafeHtml) {
+    return index; // Ensure Angular tracks items properly
+  }
+
   sendImageCursorListener() {
     setTimeout(() => {
-      console.log("Hover over image")
+      console.log("Hover over image");
       this.hoverService.setHoverState(true);
     }, 500)
   }
