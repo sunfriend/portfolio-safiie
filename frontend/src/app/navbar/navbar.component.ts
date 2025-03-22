@@ -103,8 +103,7 @@ ngAfterViewInit() {
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
     if (
-      (toElement && toElement.closest('.mat-mdc-menu-content')) ||
-      this.childOpen
+      (toElement && toElement.closest('.mat-mdc-menu-content') && toElement.closest('.mat-mdc-button'))
     ) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
