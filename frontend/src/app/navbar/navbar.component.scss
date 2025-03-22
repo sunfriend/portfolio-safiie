@@ -67,6 +67,7 @@ mat-toolbar {
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
   z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 mat-toolbar .title {
@@ -103,6 +104,10 @@ button {
     display: flex;
     align-items: center;
   }
+}
+
+.navbar-scroll-color {
+  background-color: yellowgreen !important;
 }
 
 /* Media Query for Mobile View */
