@@ -129,7 +129,7 @@ ngAfterViewInit() {
     
 
   
-      if (scrollPos > 100) {
+      if (scrollPos > 220) {
         element.classList.add('navbar-scroll-color');
       } else {
         element.classList.remove('navbar-scroll-color');
