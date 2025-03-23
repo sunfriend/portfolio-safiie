@@ -19,7 +19,7 @@ $toolbar-text-color: white;
     container-color: $primary-color,
     item-label-text-color: $button-text-color,
     item-hover-state-layer-color: $hover-color,
-    container-shape: 'cut',
+    container-shape: 'cut'
   ));
 }
 
@@ -34,9 +34,7 @@ html, body {
   outline: none !important;
   border-radius: 0 !important;
 }
-.mdc-button.mat-mdc-button:hover {
-  // border-bottom: 1px solid $hover-color !important;
-}
+
 .mat-mdc-menu-item:focus {
   background-color: transparent !important;
 }

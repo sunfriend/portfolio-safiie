@@ -8,9 +8,8 @@ import { PortfolioContentComponent } from "../portfolio-content/portfolio-conten
   styleUrl: './professional-responsibilities.component.scss'
 })
 export class ProfessionalResponsibilitiesComponent {
-headerTitlePhrase: string|undefined = `
-"The teacher explores their own intersecting social identities and how they impact daily experience as an educator." - Standard 6, E. 
-`;
+headerTitlePhrase: string|undefined = 
+'\"The teacher explores their own intersecting social identities and how they impact daily experience as an educator.\", \n- Standard 6, E. ';
 contentBlocks: string[] = [
   `
   <p>In my Theory to Practice class, I participated in a <a target="_blank" href='https://docs.google.com/document/d/1ekChbtTY9KI5yaBXCseaIl2mXkzFIM34zvgptp8a7kM/edit?tab=t.0' aria-label='Microteaching Evaluation'>Microteaching Evaluation</a> assignment  where I delivered a lesson to my peers and received both self and peer evaluations. After the lesson, I reflected on the feedback I received, as well as my own self-assessment, to critically evaluate my performance. Through this process, I explored how my own intersecting social identities—such as my cultural background, gender, and experiences as an international educator—shaped my teaching approach and interactions with students. The feedback from my peers was invaluable in helping me identify areas where my social identity may have influenced my communication style or teaching methods, both positively and negatively. This process aligns with Standard 6, E, which emphasizes the importance of teachers exploring their own social identities and understanding how these identities impact their daily experience as an educator. Reflecting on this evaluation allowed me to recognize the need for continuous self-awareness and improvement, ensuring that I am creating an inclusive and responsive classroom environment that accounts for the diverse needs of my students.</p>
