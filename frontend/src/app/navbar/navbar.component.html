@@ -16,7 +16,15 @@
         routerLinkActive="active-link"
         (click)="closeSidenav(drawer)"
       >
-        Philosophy
+        Philosophy Statement
+      </button>
+      <button
+        mat-button
+        routerLink="/school-and-work-experience"
+        routerLinkActive="active-link"
+        (click)="closeSidenav(drawer)"
+      >
+        School and Work Experience
       </button>
       <button
         mat-button
@@ -103,14 +111,15 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary"  class="navbar-object">
-      <button mat-button routerLink="/" routerLinkActive="active-link" class="title">Safiie Seitatpiieva</button>
-      <button mat-button routerLink="/" routerLinkActive="active-link">
+      <button mat-button routerLink="/" routerLinkActive="active-link" class="title button-shadow text-shadow">Safiie Seitaptiieva</button>
+      <button mat-button routerLink="/" routerLinkActive="active-link" class="button-shadow text-shadow">
         Home
       </button>
       <button
         mat-button
         routerLink="/philosophy"
         routerLinkActive="active-link"
+        class="button-shadow text-shadow"
       >
         Philosophy Statement
       </button>
@@ -124,6 +133,7 @@
         [matMenuTriggerFor]="menu1"
         routerLink="/school-and-work-experience"
         routerLinkActive="active-link"
+        class="button-shadow text-shadow"
       >
         <div>School And Work experience
           <mat-icon>keyboard_arrow_down</mat-icon>
@@ -168,6 +178,7 @@
         [matMenuTriggerFor]="menu3"
         routerLink="/sep"
         routerLinkActive="active-link"
+        class="button-shadow text-shadow"
       >
       
        <div>SEP's
@@ -180,7 +191,7 @@
           (mouseenter)="mouseEnter(menu3Trigger)"
           (mouseleave)="mouseLeave(menu3Trigger, $event)"
         >
-        <app-menu-item
+        <!-- <app-menu-item
           (pointerleave)="mouseLeave(menu1Trigger, $event)"
           (childMenuClosed)="childMenuClosed($event)"
           label="Student Learning"
@@ -190,9 +201,16 @@
             { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice' },
           ]"
         >
-        </app-menu-item>
+        </app-menu-item> -->
+        <button
+        mat-menu-item
+        routerLink="/student-learning"
+        routerLinkActive="active-link"
+      >
+        Student Learning
+      </button>
 
-        <app-menu-item
+        <!-- <app-menu-item
         (mouseleave)="mouseLeave(menu1Trigger, $event)"
         (childMenuClosed)="childMenuClosed($event)"
         label="Learning Environments"
@@ -202,9 +220,17 @@
           { label: 'Literacy Writing Assignment', link: '/literacy-writing-assignment' },
         ]"
       >
-      </app-menu-item>
+      </app-menu-item> -->
+      <button
+      mat-menu-item
+      routerLink="/learning-environments"
+      routerLinkActive="active-link"
+    >
+      Learning Environments
+    </button>
 
-      <app-menu-item
+
+      <!-- <app-menu-item
       (mouseleave)="mouseLeave(menu1Trigger, $event)"
       (childMenuClosed)="childMenuClosed($event)"
       label="Assessment"
@@ -214,9 +240,17 @@
         { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice-lesson-plan' },
       ]"
     >
-    </app-menu-item>
+    </app-menu-item> -->
+    <button
+    mat-menu-item
+    routerLink="/assessment"
+    routerLinkActive="active-link"
+  >
+    Assessment
+  </button>
+    
 
-    <app-menu-item
+    <!-- <app-menu-item
       (mouseleave)="mouseLeave(menu1Trigger, $event)"
       (childMenuClosed)="childMenuClosed($event)"
       label="Planning for Instruction"
@@ -226,9 +260,16 @@
         { label: 'Theory to Practice Lesson Plan', link: '/theory-to-practice-lesson-plan-2' },
       ]"
     >
-    </app-menu-item>
+    </app-menu-item> -->
+    <button
+    mat-menu-item
+    routerLink="/planning-for-instruction"
+    routerLinkActive="active-link"
+  >
+    Planning for Instruction
+  </button>
 
-    <app-menu-item
+    <!-- <app-menu-item
     (mouseleave)="mouseLeave(menu1Trigger, $event)"
     (childMenuClosed)="childMenuClosed($event)"
     label="Instructional Strategies"
@@ -238,9 +279,16 @@
       { label: 'Social Studies Lesson Plan', link: '/social-studies-lesson-plan' },
     ]"
   >
-  </app-menu-item>
+  </app-menu-item> -->
+  <button
+  mat-menu-item
+  routerLink="/instructional-strategies"
+  routerLinkActive="active-link"
+>
+  Instructional Strategies
+</button>
 
-  <app-menu-item
+  <!-- <app-menu-item
     (mouseleave)="mouseLeave(menu1Trigger, $event)"
     (childMenuClosed)="childMenuClosed($event)"
     label="Professional Responsibilities"
@@ -250,9 +298,16 @@
       { label: 'Micro Teaching Reflection', link: '/micro-teaching-reflection' },
     ]"
   >
-  </app-menu-item>
+  </app-menu-item> -->
+  <button
+  mat-menu-item
+  routerLink="/professional-responsibilities"
+  routerLinkActive="active-link"
+>
+  Professional Responsibilities
+</button>
 
-  <app-menu-item
+  <!-- <app-menu-item
     (mouseleave)="mouseLeave(menu1Trigger, $event)"
     (childMenuClosed)="childMenuClosed($event)"
     label="Collaboration and Leadership"
@@ -262,9 +317,16 @@
       { label: 'Cooperating Teacher Evaluation', link: '/cooperating-teacher-evaluation' },
     ]"
   >
-  </app-menu-item>
+  </app-menu-item> -->
+  <button
+  mat-menu-item
+  routerLink="/collaboration-and-leadership"
+  routerLinkActive="active-link"
+>
+  Collaboration and Leadership
+</button>
 
-  <app-menu-item
+  <!-- <app-menu-item
     (mouseleave)="mouseLeave(menu1Trigger, $event)"
     (childMenuClosed)="childMenuClosed($event)"
     label="Racial Consciousness"
@@ -274,8 +336,14 @@
       { label: 'Teaching Indigenous History Presentation', link: '/teaching-indigenous-history-presentation' },
     ]"
   >
-  </app-menu-item>
-
+  </app-menu-item> -->
+  <button
+  mat-menu-item
+  routerLink="/racial-consciousness"
+  routerLinkActive="active-link"
+>
+  Racial Consciousness
+</button>
         </div>
       </mat-menu>
     </mat-toolbar>

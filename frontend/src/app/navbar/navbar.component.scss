@@ -1,4 +1,4 @@
-$primary-color: #1976d2;
+$primary-color: #244465;
 $hover-color: #1565c0;
 $active-link-color: #64b5f6; /* Lighter blue for better contrast and visibility */
 $button-text-color: white;
@@ -52,6 +52,7 @@ $toolbar-text-color: white;
   background: none;
   border: none;
   color: $button-text-color;
+  margin-left: 17px;
 }
 
 mat-sidenav-content {
@@ -67,6 +68,7 @@ mat-toolbar {
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
   z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 mat-toolbar .title {
@@ -103,6 +105,19 @@ button {
     display: flex;
     align-items: center;
   }
+}
+.navbar-scroll-color {
+  background-color: $primary-color !important;
+}
+.text-shadow {
+  text-shadow:
+  1px 1px 2px black,
+  0 0 1em black,
+  0 0 0.2em black !important;
+}
+
+.disable-pointer {
+  pointer-events: none;
 }
 
 /* Media Query for Mobile View */

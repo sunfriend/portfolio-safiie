@@ -23,11 +23,12 @@ import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { HoverService } from '../services/hover.service';
 import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   imports: [
-    MenuItemComponent,
+    CommonModule,
     MatMenuModule,
     MatButtonModule,
     RouterModule,
@@ -41,8 +42,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements AfterViewInit {
   childOpen: boolean = false;
+  public isScrolled: boolean = false;
 
   @ViewChild('drawer') drawer!: MatSidenav;
   @ViewChild('menu1Trigger') menu1Trigger!: MatMenuTrigger;
@@ -51,7 +53,8 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   timedOutCloser: any;
   openMenuTrigger: any; // Track currently open menu
-  @ViewChild(MatSidenavContent, { static: true }) sidenavContent!: MatSidenavContent;
+  @ViewChild(MatSidenavContent, { static: true })
+  sidenavContent!: MatSidenavContent;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -65,22 +68,23 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         }
       });
   }
-  ngOnInit(): void {
-    this.hoverSubscription = this.hoverService.hover$.subscribe((state) => {
-      if (this.menu3Trigger) {
-        this.menu3Trigger.closeMenu();
-      }
+  // ngOnInit(): void {
+  //   this.hoverSubscription = this.hoverService.hover$.subscribe((state) => {
+  //     if (this.menu3Trigger) {
+  //       this.menu3Trigger.closeMenu();
+  //     }
+  //   });
+  // }
+
+  ngAfterViewInit() {
+    this.sidenavContent.elementScrolled().subscribe(() => {
+      const scrollPosition =
+        this.sidenavContent.getElementRef().nativeElement.scrollTop;
+      // console.log('Scroll Position:', scrollPosition);
+
+      this.onDocumentMousewheelEvent(scrollPosition);
     });
   }
-
-ngAfterViewInit() {
-  this.sidenavContent.elementScrolled().subscribe(() => {
-    const scrollPosition = this.sidenavContent.getElementRef().nativeElement.scrollTop;
-    // console.log('Scroll Position:', scrollPosition);
-
-    this.onDocumentMousewheelEvent(scrollPosition);
-  });
-}
 
   closeSidenav(drawer: any) {
     drawer.close();
@@ -103,8 +107,9 @@ ngAfterViewInit() {
   mouseLeave(trigger: any, event: MouseEvent) {
     const toElement = event.relatedTarget as HTMLElement;
     if (
-      (toElement && toElement.closest('.mat-mdc-menu-content')) ||
-      this.childOpen
+      toElement &&
+      toElement.closest('.mat-mdc-menu-content') &&
+      toElement.closest('.mat-mdc-button')
     ) {
       return; // Do not close if moving to the dropdown or back to the trigger
     }
@@ -123,17 +128,24 @@ ngAfterViewInit() {
   }
 
   onDocumentMousewheelEvent(scrollPos: number) {
-    let element = document.querySelector(
-      '.navbar-object'
-    ) as HTMLElement;
-    
+    let element = document.querySelector('.navbar-object') as HTMLElement;
+    let buttons = document.querySelectorAll('.button-shadow') as NodeListOf<HTMLElement>;
+    if (scrollPos > 220) {
+      element.classList.add('navbar-scroll-color');
+      // title.classList.remove('text-shadow');
+      this.isScrolled = true;
+    } else {
+      element.classList.remove('navbar-scroll-color');
+      // title.classList.add('text-shadow');
+      this.isScrolled = false;
+    }
 
-  
-      if (scrollPos > 220) {
-        element.classList.add('navbar-scroll-color');
-      } else {
-        element.classList.remove('navbar-scroll-color');
+    for (const btn of buttons) {
+      if (!this.isScrolled){
+      btn.classList.add('text-shadow')}
+      else {
+        btn.classList.remove('text-shadow');
       }
-    
+    }
   }
 }

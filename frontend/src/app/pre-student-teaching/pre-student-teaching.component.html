@@ -1,1 +1,9 @@
-<p>pre-student-teaching works!</p>
+<app-portfolio-content
+  [imageSrc]="'assets/images/student-teaching.jpeg'"
+  [headerTitle]="'Student Teaching'"
+  [imageAlt]="'Student Teaching'"
+  [contentBlocks]="contentBlocks"
+  [headerTitlePhrase]="headerTitlePhrase"
+  >
+</app-portfolio-content>
+<iframe [src]="pdfUrl" width="100%" height="600px" style="position: absolute; width: 100%; height: 100%"></iframe>
