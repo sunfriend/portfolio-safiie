@@ -27,16 +27,16 @@ export class FieldExperienceComponent {
         <td>GED 7815 School and Society</td>
         <td>Richfield</td>
         <td>Horizon Science Academy</td>
-        <td>3 days school tours</td>
+        <td>20</td>
         <td>Fall 2023</td>
         <td>2</td>
-        <td></td>
+        <td>All</td>
       </tr>
       <tr>
         <td>GED 7867 Theory to Practice</td>
         <td>Mounds View Public Schools</td>
         <td>Chippewa Middle School</td>
-        <td>3 days</td>
+        <td>15</td>
         <td>Spring 2024</td>
         <td>6th</td>
         <td>Earth Science</td>
@@ -45,7 +45,7 @@ export class FieldExperienceComponent {
         <td>GED 7872 Exceptionality</td>
         <td>St. Paul Public Schools</td>
         <td>Murray Middle School</td>
-        <td>5 hours</td>
+        <td>5</td>
         <td>Winter 2024</td>
         <td>6th-8th</td>
         <td>Special Education</td>
@@ -54,7 +54,7 @@ export class FieldExperienceComponent {
         <td>GED 7852 Teaching Mathematics</td>
         <td>Richfield</td>
         <td>Horizon Science Academy</td>
-        <td>30 hours</td>
+        <td>30</td>
         <td>Fall 2024</td>
         <td>2</td>
         <td>Math</td>
