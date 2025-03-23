@@ -12,7 +12,7 @@ export class HomeComponent {
   `
   <h2>About Me</h2>
  <div style="display: flex; align-items: flex-start; flex-wrap: wrap;">
-    <img src="/assets/images/my-photo.jpg" 
+    <img src="assets/images/my-photo.jpg" 
          style="width: 200px; max-width: 100%; height: auto; margin-right: 20px; flex-shrink: 0;">
     <div style="flex: 1; min-width: 300px;">
         <p>I was born in Crimea, the southern peninsula of Ukraine. I am Crimean Tatar. We are the indigenous people of Crimea, a Muslim, Turkic-speaking people, the largest ethnic minority of Ukraine. Though my nation has been continually persecuted by Russia and slowly forced out of the peninsula, we remain a proud and independent people, clinging fast to our traditions and values. And one of those values is the importance of education. I grew up in a family in which education was always a priority. My brother and I attended the best public school available to us, and we were urged to continue on with our education.</p>
