@@ -10,7 +10,7 @@ import { PortfolioContentComponent } from "../portfolio-content/portfolio-conten
 export class ResumeComponent {
   contentBlocks: string[] = [`
     <!-- Name Centered -->
-  <p style="text-align: center; font-weight: bold; font-size: 24px;">S A F I I E S E I T A P T I I E V A</p>
+  <p style="text-align: center; font-weight: bold; font-size: 24px;"><span>S A F I I E</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>S E I T A P T I I E V A</span></p>
   
   <!-- Contact Info (Now Left-Aligned) -->
   <div style="max-width: 600px;">
