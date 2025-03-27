@@ -119,6 +119,17 @@ button {
 .disable-pointer {
   pointer-events: none;
 }
+.corner-overlay {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  width: 60px;
+  height: 55px;
+  background-color: $primary-color;
+  z-index: 10;
+  border-radius: 100% 100% 100% 100%;
+}
 
 /* Media Query for Mobile View */
 @media screen and (max-width: 768px) {
@@ -148,6 +159,9 @@ button {
     position: fixed;
     top: 16px;
   }
+  .corner-overlay {
+    top: 0px;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -160,5 +174,8 @@ button {
   mat-toolbar .title {
     font-size: 20px;
     margin-left: 0;
+  }
+  .corner-overlay {
+    display: none;
   }
 }
