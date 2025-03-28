@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   // Define your breakpoints (e.g., for mobile, tablet, desktop)
   mobileImageSrc: string = 'assets/images/hamline-mobile.jpg';
   tabletImageSrc: string = 'assets/images/hamline.jpg';
-  desktopImageSrc: string = 'assets/images/hamline2.jpg';
+  desktopImageSrc: string = 'assets/images/hamline-3.jpg';
 
 
 
