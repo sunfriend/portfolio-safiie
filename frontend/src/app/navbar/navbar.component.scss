@@ -119,16 +119,48 @@ button {
 .disable-pointer {
   pointer-events: none;
 }
-.corner-overlay {
+// .corner-overlay {
+//   display: block;
+//   position: absolute;
+//   left: 10px;
+//   top: 5px;
+//   width: 60px;
+//   height: 54px;
+//   background-color: $primary-color;
+//   z-index: 10;
+//   border-radius: 100% 100% 100% 100%;
+// }
+
+.heart {
   display: block;
   position: absolute;
-  left: 10px;
-  top: 5px;
-  width: 60px;
-  height: 55px;
-  background-color: $primary-color;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(184, 31, 31);
+  transform: rotate(-45deg);
   z-index: 10;
-  border-radius: 100% 100% 100% 100%;
+  top: 24px;
+  left: 26px;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(184, 31, 31);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -17px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 17px;
 }
 
 /* Media Query for Mobile View */
@@ -159,8 +191,8 @@ button {
     position: fixed;
     top: 16px;
   }
-  .corner-overlay {
-    top: 0px;
+  .heart {
+    top: 19px;
   }
 }
 
@@ -175,7 +207,7 @@ button {
     font-size: 20px;
     margin-left: 0;
   }
-  .corner-overlay {
+  .heart {
     display: none;
   }
 }
