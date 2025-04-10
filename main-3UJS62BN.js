@@ -38,13 +38,12 @@ ${e.map((i,r)=>`${r+1}) ${i.toString()}`).join(`
     <p style="font-weight: bold;">C O N T A C T</p>
     <p>\u{1F4DE} +1 (651)-795-9204</p>
     <p>\u{1F4E7} safieseytaptieva@gmail.com</p>
-    <p>\u{1F4CD} 999 41 Ave NE, Columbia Heights, MN</p>
   </div>
   
   <!-- Summary Section -->
   <p style="font-weight: bold; text-align: center;">Teaching Portfolio</p>
-  <p style="text-align: center;">Passionate and dedicated educator with a strong background in elementary education, student engagement, and curriculum development. Committed to creating a supportive learning environment, fostering creativity, and promoting student success.</p>
-  
+  <p style="text-align: justify;">Passionate and dedicated educator with a strong background in elementary education, student engagement, and curriculum development. Committed to creating a supportive learning environment, fostering creativity, and promoting student success.</p>
+  <br>
   <!-- Two-Column Layout: Education & Skills -->
   <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     <div style="flex: 1 1 48%;">
@@ -77,7 +76,7 @@ ${e.map((i,r)=>`${r+1}) ${i.toString()}`).join(`
   <!-- Two-Column Layout: Work Experience & Certifications -->
   <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     <div style="flex: 1 1 48%;">
-      <p style="font-weight: bold;">W O R K  E X P E R I E N C E</p>
+      <p style="font-weight: bold;">W O R K&nbsp;&nbsp;  E X P E R I E N C E</p>
   
       <p><strong>Horizon Science Academy</strong><br>
          <em>Second Grade Teacher</em><br>
@@ -109,7 +108,7 @@ ${e.map((i,r)=>`${r+1}) ${i.toString()}`).join(`
     </div>
   
     <div style="flex: 1 1 48%;">
-      <p style="font-weight: bold;">C E R T I F I C A T I O N S & A W A R D S</p>
+      <p style="font-weight: bold;">C E R T I F I C A T I O N S&nbsp;&nbsp; &&nbsp;&nbsp; A W A R D S</p>
       <ul style="list-style: none; padding-left: 0;">
         <li style="list-style-type: none;">\u{1F3C6} Aspiring Teachers of Color Scholarship (2024-2025)</li>
         <li style="list-style-type: none;">\u{1F3C6} The International Student's Academy Award (2019)</li>
