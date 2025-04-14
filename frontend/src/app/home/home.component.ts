@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { PortfolioContentComponent } from '../portfolio-content/portfolio-content.component';
 
 @Component({
@@ -7,7 +7,30 @@ import { PortfolioContentComponent } from '../portfolio-content/portfolio-conten
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  public imageSrc: string = '';
+
+  // Define your breakpoints (e.g., for mobile, tablet, desktop)
+  mobileImageSrc: string = 'assets/images/hamline-mobile.jpg';
+  tabletImageSrc: string = 'assets/images/hamline.jpg';
+  desktopImageSrc: string = 'assets/images/hamline-3.jpg';
+
+
+
+  ngOnInit(): void {
+    this.setImageSource(window.innerWidth);
+  }
+  private setImageSource(width: number): void {
+    if (width <= 630) {
+      this.imageSrc = this.mobileImageSrc;
+    } else if (width >= 631 && width < 700) {
+      this.imageSrc = this.tabletImageSrc;
+    } else if (width >= 700) {
+      this.imageSrc = this.desktopImageSrc;
+    }
+  }
+
+
   public contentBlocks: string[] = [
   `
   <h2>About Me</h2>
@@ -28,4 +51,10 @@ export class HomeComponent {
 </div>
 `,
   ];
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    const width = window.innerWidth;
+    this.setImageSource(width); // Update image source on window resize
+  }
 }

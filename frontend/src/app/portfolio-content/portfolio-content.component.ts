@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { HoverService } from '../services/hover.service';
@@ -16,6 +16,7 @@ export class PortfolioContentComponent {
   @Input() contentBlocks: string[] = [];
   @Input() headerTitle: string | undefined; // Default header title
   @Input() headerTitlePhrase: string | undefined;
+  @Input() imageStyle: string = '';
 
   
   // Function to sanitize HTML content

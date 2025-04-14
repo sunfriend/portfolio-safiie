@@ -14,4 +14,26 @@
   button {
     margin-left: 16px;
   }
+
+
+//   /* Media query for larger screens */
+// @media (min-width: 1024px) {
+//   .top-image-container img {
+//     content: url('/path/to/large-image.jpg');
+//   }
+// }
+
+// /* Media query for medium screens (tablets) */
+// @media (max-width: 1024px) and (min-width: 768px) {
+//   .top-image-container img {
+//     content: url('/path/to/medium-image.jpg');
+//   }
+// }
+
+// /* Media query for small screens (mobiles) */
+// @media (max-width: 767px) {
+//   .top-image-container img {
+//     content: url('/path/to/small-image.jpg');
+//   }
+// }
   

@@ -17,13 +17,12 @@ export class ResumeComponent {
     <p style="font-weight: bold;">C O N T A C T</p>
     <p>📞 +1 (651)-795-9204</p>
     <p>📧 safieseytaptieva@gmail.com</p>
-    <p>📍 999 41 Ave NE, Columbia Heights, MN</p>
   </div>
   
   <!-- Summary Section -->
   <p style="font-weight: bold; text-align: center;">Teaching Portfolio</p>
-  <p style="text-align: center;">Passionate and dedicated educator with a strong background in elementary education, student engagement, and curriculum development. Committed to creating a supportive learning environment, fostering creativity, and promoting student success.</p>
-  
+  <p style="text-align: justify;">Passionate and dedicated educator with a strong background in elementary education, student engagement, and curriculum development. Committed to creating a supportive learning environment, fostering creativity, and promoting student success.</p>
+  <br>
   <!-- Two-Column Layout: Education & Skills -->
   <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     <div style="flex: 1 1 48%;">
@@ -56,7 +55,7 @@ export class ResumeComponent {
   <!-- Two-Column Layout: Work Experience & Certifications -->
   <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     <div style="flex: 1 1 48%;">
-      <p style="font-weight: bold;">W O R K  E X P E R I E N C E</p>
+      <p style="font-weight: bold;">W O R K&nbsp;&nbsp;  E X P E R I E N C E</p>
   
       <p><strong>Horizon Science Academy</strong><br>
          <em>Second Grade Teacher</em><br>
@@ -88,7 +87,7 @@ export class ResumeComponent {
     </div>
   
     <div style="flex: 1 1 48%;">
-      <p style="font-weight: bold;">C E R T I F I C A T I O N S & A W A R D S</p>
+      <p style="font-weight: bold;">C E R T I F I C A T I O N S&nbsp;&nbsp; &&nbsp;&nbsp; A W A R D S</p>
       <ul style="list-style: none; padding-left: 0;">
         <li style="list-style-type: none;">🏆 Aspiring Teachers of Color Scholarship (2024-2025)</li>
         <li style="list-style-type: none;">🏆 The International Student's Academy Award (2019)</li>
