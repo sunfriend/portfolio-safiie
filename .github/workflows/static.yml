@@ -34,7 +34,7 @@ jobs:
         run: npm run build -- --configuration production --base-href="/portfolio-safiie/"
         working-directory: ./frontend
 
-      # 5️⃣ Add 404.html for SPA routing (optional)
+      # 5️⃣ Add SPA redirect for Angular routing
       - name: Add SPA redirect
         run: |
           cp frontend/dist/portfolio-safiie/index.html frontend/dist/portfolio-safiie/404.html
@@ -44,4 +44,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: frontend/dist/portfolio-safiie
+          folder: frontend/dist/portfo
