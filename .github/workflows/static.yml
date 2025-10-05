@@ -1,5 +1,8 @@
 name: Build and Deploy Angular App
 
+permissions:
+  contents: write  # 👈 allows the Action to push to gh-pages
+
 on:
   push:
     branches:
