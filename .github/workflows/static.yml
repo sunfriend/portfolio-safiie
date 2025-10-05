@@ -34,7 +34,12 @@ jobs:
         run: npm run build -- --configuration production --base-href="/portfolio-safiie/"
         working-directory: ./frontend
 
-      # 5️⃣ Deploy to GitHub Pages
+      # 5️⃣ Add 404.html for SPA routing (optional)
+      - name: Add SPA redirect
+        run: |
+          cp frontend/dist/portfolio-safiie/index.html frontend/dist/portfolio-safiie/404.html
+
+      # 6️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
