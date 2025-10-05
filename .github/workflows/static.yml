@@ -4,34 +4,39 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:   # allows manual trigger
+  workflow_dispatch:  # allows manual trigger from GitHub
 
 permissions:
-  contents: write
+  contents: write  # required to push to gh-pages
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # 3️⃣ Install dependencies in frontend
       - name: Install dependencies
         run: npm ci
-        working-directory: ./
+        working-directory: ./frontend
 
+      # 4️⃣ Build Angular project
       - name: Build Angular project
         run: npm run build -- --configuration production --base-href="/portfolio-safiie/"
-        working-directory: ./
+        working-directory: ./frontend
 
+      # 5️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/portfolio-safiie
+          folder: frontend/dist/portfolio-safiie
