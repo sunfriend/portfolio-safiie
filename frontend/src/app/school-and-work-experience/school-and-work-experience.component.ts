@@ -17,9 +17,7 @@ I also completed my undergraduate degree in **Civil Engineering and Architecture
 
 ## Work Experience:
 
-In terms of work experience, I currently work as a **Second Grade Teacher** at **Horizon Science Academy**, where I design and deliver engaging lesson plans, provide individualized academic support, and collaborate with my colleagues to enhance our students' learning experiences. My role involves creating an inclusive classroom environment where all students can succeed and thrive.
-
-Additionally, I have had the opportunity to work with **Avid 4 Adventure** as an Outdoor Activities Instructor, where I led and supervised children in various outdoor activities like kayaking, biking, and stand-up paddleboarding. This position helped me develop leadership skills and taught me the importance of teamwork and safety in an outdoor setting.
+I have had the opportunity to work with **Avid 4 Adventure** as an Outdoor Activities Instructor, where I led and supervised children in various outdoor activities like kayaking, biking, and stand-up paddleboarding. This position helped me develop leadership skills and taught me the importance of teamwork and safety in an outdoor setting.
 
 In the past, I also worked as an **Assistant English Teacher** at **Eskişehir Amerikan Kültür Dil Okulları**, where I supported young learners in their English language development through storytelling, interactive activities, and cultural exchange.
 
