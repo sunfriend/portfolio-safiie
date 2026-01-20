@@ -10,7 +10,7 @@ import { PortfolioContentComponent } from "../portfolio-content/portfolio-conten
 export class SepComponent {
 contentBlocks: string[] = [
   `
-  <p>Within each SEP, the hyperlinks provided in the writings will bring you straight to the Google Docs, Google Slides, or Canva site that was used to create it. Each document should allow viewing. For easier viewing, each document is also provided in screnshot form in the labeled subsection beneath each SEP heading. </p>
+Within each SEP, the hyperlinks provided in the writings will bring you straight to the Google Docs, Google Slides, or Canva site that was used to create it. Each document should allow viewing. For easier viewing, each document is also provided in screnshot form in the labeled subsection beneath each SEP heading.
   `
 ];
 headerTitlePhrase: string|undefined;

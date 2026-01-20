@@ -33,22 +33,19 @@ export class HomeComponent implements OnInit {
 
   public contentBlocks: string[] = [
   `
-  <h2>About Me</h2>
- <div style="display: flex; align-items: flex-start; flex-wrap: wrap;">
-    <img src="assets/images/my-photo.jpg" 
-         style="width: 200px; max-width: 100%; height: auto; margin-right: 20px; flex-shrink: 0;">
-    <div style="flex: 1; min-width: 300px;">
-        <p>I was born in Crimea, the southern peninsula of Ukraine. I am Crimean Tatar. We are the indigenous people of Crimea, a Muslim, Turkic-speaking people, the largest ethnic minority of Ukraine. Though my nation has been continually persecuted by Russia and slowly forced out of the peninsula, we remain a proud and independent people, clinging fast to our traditions and values. And one of those values is the importance of education. I grew up in a family in which education was always a priority. My brother and I attended the best public school available to us, and we were urged to continue on with our education.</p>
-        
-        <p>As a child growing up as a minority, surrounded by people who sometimes despised us, I always found comfort in school and admired my teachers—especially those who helped me better understand my language and culture. I often thought to myself, “I will be a teacher when I grow up.” But as the time neared for making those decisions, life radically changed in Crimea. When Russia invaded my homeland, I chose to leave and pursue my dream of studying abroad. I moved to Turkey, where I could study in a field that promised a higher-paying job and provided much-needed support for my family back in Crimea. From a young age, I had always wanted to study abroad, to learn new languages, and to find success in an international environment. These experiences continue to inspire my path as an educator.</p>
+## About Me
 
-        <p>I graduated from a university in Turkey with a dream of continuing my education and earning a higher degree in the United States. But then my life took another radical turn when I was offered the opportunity to teach first grade in a school that serves disadvantaged students. I found myself facing a classroom of 24 six-year-olds, mostly Somali students, and I fell in love with teaching and all those aspirations to emulate the teachers of my youth came back to me. I knew that what I truly wanted to be was a teacher.</p>
+![Profile Photo](assets/images/my-photo.jpg)
 
-        <p>As an immigrant living far from my homeland, working with children provides a meaningful way to stay connected, develop new skills, and continue growing in my professional journey. ​​I have always embraced new cultures and languages, and I’ve found it fascinating to learn from people who have different perspectives and ways of thinking. I’ve never seen cultural differences as challenges but rather as opportunities to grow and understand the world from a broader viewpoint. It’s this curiosity and openness to learning that I aim to bring into my classroom, encouraging my students to appreciate the diversity around them.</p>
+I was born in Crimea, the southern peninsula of Ukraine. I am Crimean Tatar, a member of the indigenous people of Crimea—a Muslim, Turkic-speaking community and the largest ethnic minority in Ukraine. Despite a long history of persecution and forced displacement, particularly following Russia’s occupation of Crimea, the Crimean Tatar people have preserved their cultural identity, values, and resilience. One of our most deeply held values is the importance of education, which shaped my upbringing and continues to guide my academic and professional journey.
 
-        <p>For me, students are all the same—no matter where they are in the world. As soon as I become their teacher, they become my responsibility. I believe that regardless of where I teach, they will learn from me, and I will learn from them in return. My mission is not only to educate within the borders of one country but also to spread this knowledge and experience internationally, contributing to teaching in different cultures.</p>
-    </div>
-</div>
+I grew up in a family where education was always a priority. My brother and I attended the best public school available to us, and we were encouraged from an early age to pursue academic excellence. As a minority student, school became a place of safety and belonging for me. I admired my teachers, especially those who helped me better understand my language, culture, and identity. It was during these formative years that I first envisioned myself becoming a teacher—someone who could support students academically while affirming who they are.
+
+My life changed dramatically when Russia invaded Crimea. Faced with political instability and limited educational opportunities, I made the difficult decision to leave my homeland and pursue higher education abroad. I moved to Turkey, where I was granted the Türkiye Bursları Scholarship, which enabled me to continue my studies in a stable and academically rigorous environment. While studying in Turkey, I also participated in the International Students Academy in Eskişehir, a program designed to support international students through academic enrichment, cultural exchange, and intellectual development. This experience allowed me to engage with students from diverse backgrounds, participate in seminars and workshops, and further strengthen my intercultural and academic perspective.
+
+In Turkey, I completed my university education in a field that allowed me to gain strong analytical and academic skills while supporting my family during a difficult period. My education there exposed me to diverse perspectives, multilingual learning environments, and international academic standards. These experiences deepened my interest in education, curriculum development, and teacher preparation, and they laid the foundation for my long-term academic goals.
+
+My academic journey later led me to the United States, where I earned a Master of Arts in Education with an Educator License from Hamline University. At Hamline, I developed a strong foundation in pedagogy, curriculum design, assessment, and culturally responsive teaching. My graduate studies strengthened my commitment to supporting multilingual and immigrant learners while grounding my teaching practice in research-based educational theory. The combination of my academic background in Turkey and my professional preparation in the United States has shaped my desire to pursue doctoral-level research in education.
 `,
   ];
 

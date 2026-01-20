@@ -1,16 +1,16 @@
 import { Component, input, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
+import { MarkdownModule } from 'ngx-markdown';
 import { HoverService } from '../services/hover.service';
 
 @Component({
   selector: 'app-portfolio-content',
-  imports: [CommonModule],
+  imports: [CommonModule, MarkdownModule],
   templateUrl: './portfolio-content.component.html',
   styleUrl: './portfolio-content.component.scss'
 })
 export class PortfolioContentComponent {
-  constructor(private sanitizer: DomSanitizer, private hoverService: HoverService) {}
+  constructor(private hoverService: HoverService) {}
   @Input() imageSrc: string = '';
   @Input() imageAlt: string = '';
   @Input() contentBlocks: string[] = [];
@@ -18,13 +18,13 @@ export class PortfolioContentComponent {
   @Input() headerTitlePhrase: string | undefined;
   @Input() imageStyle: string = '';
 
-  
-  // Function to sanitize HTML content
-  get sanitizedContent(): SafeHtml[] {
-    return this.contentBlocks.map(block => this.sanitizer.bypassSecurityTrustHtml(block));
+
+  // Angular will automatically sanitize HTML content
+  get sanitizedContent(): string[] {
+    return this.contentBlocks;
   }
 
-  trackByFn(index: number, item: SafeHtml) {
+  trackByFn(index: number, item: string) {
     return index; // Ensure Angular tracks items properly
   }
 

@@ -8,7 +8,8 @@
     </div>
     
     <div class="content">
-      <div class="column" *ngFor="let block of sanitizedContent" [innerHtml]="block">
+      <div class="column" *ngFor="let block of sanitizedContent">
+        <markdown [data]="block"></markdown>
       </div>
     </div>
   </div>

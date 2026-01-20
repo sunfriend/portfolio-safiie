@@ -61,3 +61,15 @@ th, td {
   padding: 8px;
   text-align: left;
 }
+
+/* Profile photo styling - make it small and float left */
+markdown img[src*="my-photo"],
+img[src*="my-photo"] {
+  max-width: 250px !important;
+  width: 250px !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  float: left !important;
+  margin-right: 20px !important;
+  margin-bottom: 10px !important;
+}
